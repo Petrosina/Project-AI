@@ -606,5 +606,208 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
 
 
+<script>
+(function () {
+  // ── Data per year ──────────────────────────────────────────────
+  var DATA = {
+    "All Years (2024\u20132025)": {
+      kpi: { avg: "61%", avgSub: "Semua industri \xb7 2024\u20132025", avgDelta: "\u25b2 +14 pp vs 2023",
+             leader: "FinServ", leaderSub: "Financial Services \xb7 78% adoption rate",
+             invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
+             usecase: "GenAI", usecaseSub: "Generative AI / LLM \xb7 72% penetrasi" },
+      bars: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" },
+      barWidths: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" }
+    },
+    "2024": {
+      kpi: { avg: "50%", avgSub: "Semua industri \xb7 2024", avgDelta: "\u25b2 +6 pp vs 2023",
+             leader: "FinServ", leaderSub: "Financial Services \xb7 68% adoption rate",
+             invest: "$1.5B", investDelta: "\u25b2 +24% YoY",
+             usecase: "GenAI", usecaseSub: "Generative AI / LLM \xb7 58% penetrasi" },
+      bars: { financial: "68%", manufacturing: "44%", healthcare: "37%", avg: "50%" },
+      barWidths: { financial: "68%", manufacturing: "44%", healthcare: "37%", avg: "50%" }
+    },
+    "2025": {
+      kpi: { avg: "61%", avgSub: "Semua industri \xb7 2025", avgDelta: "\u25b2 +11 pp vs 2024",
+             leader: "FinServ", leaderSub: "Financial Services \xb7 78% adoption rate",
+             invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
+             usecase: "GenAI", usecaseSub: "Generative AI / LLM \xb7 72% penetrasi" },
+      bars: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" },
+      barWidths: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" }
+    }
+  };
+
+  // ── Industry map ───────────────────────────────────────────────
+  var INDUSTRY_MAP = {
+    "All Industries": null,
+    "Financial Services": "financial",
+    "Manufacturing / Investment": "manufacturing",
+    "Healthcare": "healthcare"
+  };
+
+  var COMPANY_MAP = {
+    "All Companies": null,
+    "Bank Mandiri": "mandiri",
+    "BCA": "bca",
+    "BRI": "bri",
+    "BNI": "bni",
+    "Siloam Hospitals": "siloam",
+    "Kalbe Farma": "kalbe",
+    "Kimia Farma": "kimia",
+    "INA": "ina"
+  };
+
+  var COMPANY_INDUSTRY = {
+    mandiri: "financial", bca: "financial", bri: "financial", bni: "financial",
+    siloam: "healthcare", kalbe: "healthcare", kimia: "healthcare",
+    ina: "manufacturing"
+  };
+
+  // ── Elements ───────────────────────────────────────────────────
+  var selYear     = document.getElementById("f-year");
+  var selIndustry = document.getElementById("f-industry");
+  var selCompany  = document.getElementById("f-company");
+  var btnReset    = document.getElementById("btn-reset");
+  var activeBar   = document.getElementById("filter-active-bar");
+  var activeText  = document.getElementById("filter-active-text");
+
+  // ── Apply filters ──────────────────────────────────────────────
+  function applyFilters() {
+    var year     = selYear.value;
+    var industry = INDUSTRY_MAP[selIndustry.value];
+    var company  = COMPANY_MAP[selCompany.value];
+
+    // 1. KPI cards
+    var d = DATA[year] || DATA["All Years (2024\u20132025)"];
+    document.getElementById("kpi-avg-val").textContent    = d.kpi.avg;
+    document.getElementById("kpi-avg-sub").textContent    = d.kpi.avgSub;
+    document.getElementById("kpi-avg-delta").textContent  = d.kpi.avgDelta;
+    document.getElementById("kpi-leader-val").textContent = d.kpi.leader;
+    document.getElementById("kpi-leader-sub").textContent = d.kpi.leaderSub;
+    document.getElementById("kpi-invest-val").textContent = d.kpi.invest;
+    document.getElementById("kpi-invest-delta").textContent = d.kpi.investDelta;
+    document.getElementById("kpi-usecase-val").textContent  = d.kpi.usecase;
+    document.getElementById("kpi-usecase-sub").textContent  = d.kpi.usecaseSub;
+
+    // 2. Industry bar chart — dim/undim rows
+    var barRows = document.querySelectorAll("#industry-adoption-bars .bar-row");
+    barRows.forEach(function (row) {
+      var rowInd = row.getAttribute("data-industry");
+      // update bar widths per year
+      var fillEl = row.querySelector(".bar-fill");
+      var pctEl  = row.querySelector(".bar-pct");
+      if (rowInd && d.bars[rowInd]) {
+        fillEl.style.width   = d.bars[rowInd];
+        pctEl.textContent    = d.bars[rowInd];
+      }
+      // dim logic
+      var show = true;
+      if (industry && rowInd !== "all" && rowInd !== industry) show = false;
+      row.classList.toggle("dimmed", !show);
+    });
+
+    // 3. Heatmap rows — dim by industry + company + year
+    var heatRows = document.querySelectorAll("#heatmap-body tr");
+    heatRows.forEach(function (row) {
+      var rowCo  = row.getAttribute("data-company");
+      var rowInd = row.getAttribute("data-industry");
+      var show = true;
+      if (industry && rowInd !== industry) show = false;
+      if (company && rowCo !== company)    show = false;
+      row.classList.toggle("dimmed", !show);
+    });
+
+    // 4. Bubble / score cards
+    var bubbles = document.querySelectorAll(".bubble-item");
+    bubbles.forEach(function (b) {
+      var bCo  = b.getAttribute("data-company");
+      var bInd = b.getAttribute("data-industry");
+      var show = true;
+      if (industry && bInd && bInd !== industry) show = false;
+      if (company  && bCo  && bCo  !== company)  show = false;
+      b.classList.toggle("dimmed", !show);
+    });
+
+    // 5. Active filter bar
+    var parts = [];
+    if (year !== "All Years (2024\u20132025)") parts.push("Year: " + year);
+    if (selIndustry.value !== "All Industries")  parts.push("Industry: " + selIndustry.value);
+    if (selCompany.value  !== "All Companies")   parts.push("Company: " + selCompany.value);
+    if (parts.length) {
+      activeBar.style.display = "flex";
+      activeText.textContent  = parts.join(" \xb7 ");
+    } else {
+      activeBar.style.display = "none";
+    }
+
+    // 6. Sync company dropdown — hide companies not in selected industry
+    var options = selCompany.querySelectorAll("option");
+    options.forEach(function (opt) {
+      var coKey = COMPANY_MAP[opt.value];
+      if (!coKey) return; // "All Companies"
+      var coInd = COMPANY_INDUSTRY[coKey];
+      opt.style.display = (!industry || coInd === industry) ? "" : "none";
+    });
+    // reset company if current selection is now hidden
+    if (company && COMPANY_INDUSTRY[company] && industry && COMPANY_INDUSTRY[company] !== industry) {
+      selCompany.value = "All Companies";
+    }
+  }
+
+  // ── Event listeners ────────────────────────────────────────────
+  selYear.addEventListener("change", applyFilters);
+  selIndustry.addEventListener("change", applyFilters);
+  selCompany.addEventListener("change", applyFilters);
+
+  btnReset.addEventListener("click", function () {
+    selYear.selectedIndex     = 0;
+    selIndustry.selectedIndex = 0;
+    selCompany.selectedIndex  = 0;
+    applyFilters();
+  });
+
+  // ── Donut chart interactive highlight ─────────────────────────
+  var C = 2 * Math.PI * 56; // circumference
+  var SEGMENTS = [
+    { id: "donut-financial",     pct: 0.52, prev: 0 },
+    { id: "donut-manufacturing", pct: 0.29, prev: 0.52 },
+    { id: "donut-healthcare",    pct: 0.19, prev: 0.81 }
+  ];
+  SEGMENTS.forEach(function (seg) {
+    var el = document.getElementById(seg.id);
+    if (!el) return;
+    el.setAttribute("stroke-dasharray", (seg.pct * C) + " " + C);
+    el.setAttribute("stroke-dashoffset", -(seg.prev * C));
+  });
+
+  var donutItems = document.querySelectorAll("[data-donut]");
+  var highlighted = null;
+  function highlightDonut(key) {
+    highlighted = (highlighted === key) ? null : key;
+    SEGMENTS.forEach(function (seg) {
+      var el = document.getElementById(seg.id);
+      if (!el) return;
+      var active = !highlighted || seg.id === "donut-" + highlighted;
+      el.style.opacity     = active ? "1" : "0.25";
+      el.setAttribute("stroke-width", (highlighted && seg.id === "donut-" + highlighted) ? "36" : "28");
+    });
+    donutItems.forEach(function (item) {
+      item.style.opacity = (!highlighted || item.getAttribute("data-donut") === highlighted) ? "1" : "0.4";
+    });
+  }
+  donutItems.forEach(function (item) {
+    item.addEventListener("click", function () { highlightDonut(item.getAttribute("data-donut")); });
+  });
+  SEGMENTS.forEach(function (seg) {
+    var el = document.getElementById(seg.id);
+    if (!el) return;
+    var key = seg.id.replace("donut-", "");
+    el.addEventListener("click", function () { highlightDonut(key); });
+  });
+
+  // ── Init ───────────────────────────────────────────────────────
+  applyFilters();
+})();
+</script>
+
 </body>
 </html>

@@ -252,66 +252,95 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     <div class="card-subtitle">Persentase perusahaan yang telah mengimplementasikan AI secara aktif</div>
 
     
-    <div style="position:relative;margin:0 0 8px">
-      
-      <div style="display:flex;gap:0">
-        
-        <div style="width:44px;flex-shrink:0;position:relative;height:200px">
-          <span style="position:absolute;right:6px;top:0;font-size:10px;color:#57606a">100%</span>
-          <span style="position:absolute;right:6px;top:40px;font-size:10px;color:#57606a">80%</span>
-          <span style="position:absolute;right:6px;top:80px;font-size:10px;color:#57606a">60%</span>
-          <span style="position:absolute;right:6px;top:120px;font-size:10px;color:#57606a">40%</span>
-          <span style="position:absolute;right:6px;top:160px;font-size:10px;color:#57606a">20%</span>
-        </div>
-        
-        <div style="flex:1;position:relative;height:200px;border-left:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb">
-          
-          <div style="position:absolute;left:0;right:0;top:0;height:1px;background:#f0f2f5"></div>
-          <div style="position:absolute;left:0;right:0;top:40px;height:1px;background:#f0f2f5"></div>
-          <div style="position:absolute;left:0;right:0;top:80px;height:1px;background:#f0f2f5"></div>
-          <div style="position:absolute;left:0;right:0;top:120px;height:1px;background:#f0f2f5"></div>
-          <div style="position:absolute;left:0;right:0;top:160px;height:1px;background:#f0f2f5"></div>
+    <!-- Responsive SVG line chart -->
+    <div style="margin:0 0 8px">
+      <!--
+        viewBox 0 0 760 290
+        xLeft=140 (marker 2024)   xRight=620 (marker 2025) — sejajar ujung plot
+        Plot area x: 60..640   grid berakhir di x=640
+        Y: y=20 (90%) … y=250 (20%)  skala 3.286px/pct
 
-          
-          <svg style="position:absolute;inset:0;width:100%;height:100%;overflow:visible">
-            
-            <line id="line-financial" x1="100" y1="64" x2="500" y2="44" stroke="#3b82d4" stroke-width="2.5"></line>
-            <circle cx="100" cy="64" r="5" fill="#fff" stroke="#3b82d4" stroke-width="2.5"></circle>
-            <circle cx="500" cy="44" r="5" fill="#fff" stroke="#3b82d4" stroke-width="2.5"></circle>
-            <text x="100" y="57" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">68%</text>
-            <text x="500" y="37" text-anchor="middle" font-size="10" font-weight="700" fill="#3b82d4">78%</text>
+        y(pct) = 250 - (pct-20)*3.286
+        Financial  68%→92   78%→59
+        Avg        50%→151  61%→115
+        Mfg        44%→171  56%→132
+        Healthcare 37%→194  49%→155
 
-            
-            <line id="line-manufacturing" x1="100" y1="112" x2="500" y2="88" stroke="#7c5cd8" stroke-width="2.5"></line>
-            <circle cx="100" cy="112" r="5" fill="#fff" stroke="#7c5cd8" stroke-width="2.5"></circle>
-            <circle cx="500" cy="88" r="5" fill="#fff" stroke="#7c5cd8" stroke-width="2.5"></circle>
-            <text x="100" y="127" text-anchor="middle" font-size="10" font-weight="700" fill="#7c5cd8">44%</text>
-            <text x="500" y="103" text-anchor="middle" font-size="10" font-weight="700" fill="#7c5cd8">56%</text>
+        Label 2024: text-anchor="end"   x=128  (kiri marker, jarak 12px)
+        Label 2025: text-anchor="start" x=632  (kanan marker, jarak 12px)
+        Gap vertikal label 2025 dipaksa min 18px:
+          Financial  78% → y_marker=59  → label y=48   (atas)
+          Avg        61% → y_marker=115 → label y=111  (atas)
+          Mfg        56% → y_marker=132 → label y=150  (bawah, +18px dari Avg label)
+          Healthcare 49% → y_marker=155 → label y=172  (bawah, +22px dari Mfg label)
+      -->
+      <svg id="trend-svg" viewBox="0 0 760 290" style="width:100%;display:block;overflow:visible" aria-label="Line chart tren adopsi AI 2024 vs 2025">
+        <defs>
+          <style>
+            .trend-marker{transition:r .18s ease,filter .18s ease;cursor:pointer}
+            .trend-marker:hover{r:8;filter:drop-shadow(0 0 5px currentColor)}
+          </style>
+        </defs>
 
-            
-            <line id="line-healthcare" x1="100" y1="126" x2="500" y2="102" stroke="#059669" stroke-width="2.5"></line>
-            <circle cx="100" cy="126" r="5" fill="#fff" stroke="#059669" stroke-width="2.5"></circle>
-            <circle cx="500" cy="102" r="5" fill="#fff" stroke="#059669" stroke-width="2.5"></circle>
-            <text x="100" y="141" text-anchor="middle" font-size="10" font-weight="700" fill="#059669">37%</text>
-            <text x="500" y="117" text-anchor="middle" font-size="10" font-weight="700" fill="#059669">49%</text>
+        <!-- ── Y-axis labels ── -->
+        <text x="54" y="24"  text-anchor="end" font-size="10" fill="#9ca3af">90%</text>
+        <text x="54" y="57"  text-anchor="end" font-size="10" fill="#9ca3af">80%</text>
+        <text x="54" y="90"  text-anchor="end" font-size="10" fill="#9ca3af">70%</text>
+        <text x="54" y="123" text-anchor="end" font-size="10" fill="#9ca3af">60%</text>
+        <text x="54" y="156" text-anchor="end" font-size="10" fill="#9ca3af">50%</text>
+        <text x="54" y="189" text-anchor="end" font-size="10" fill="#9ca3af">40%</text>
+        <text x="54" y="222" text-anchor="end" font-size="10" fill="#9ca3af">30%</text>
+        <text x="54" y="255" text-anchor="end" font-size="10" fill="#9ca3af">20%</text>
 
-            
-            <line id="line-avg" x1="100" y1="100" x2="500" y2="78" stroke="#f59e0b" stroke-width="2"></line>
-            <circle cx="100" cy="100" r="4" fill="#fff" stroke="#f59e0b" stroke-width="2"></circle>
-            <circle cx="500" cy="78" r="4" fill="#fff" stroke="#f59e0b" stroke-width="2"></circle>
-            <text x="100" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="#f59e0b">50%</text>
-            <text x="500" y="71" text-anchor="middle" font-size="10" font-weight="700" fill="#f59e0b">61%</text>
-          </svg>
-        </div>
-      </div>
+        <!-- ── Grid lines ── -->
+        <line x1="60" y1="20"  x2="640" y2="20"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="53"  x2="640" y2="53"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="86"  x2="640" y2="86"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="119" x2="640" y2="119" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="152" x2="640" y2="152" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="185" x2="640" y2="185" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="218" x2="640" y2="218" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="250" x2="640" y2="250" stroke="#e5e7eb" stroke-width="1"/>
 
-      
-      <div style="display:flex;padding-left:44px;margin-top:10px">
-        <div style="flex:1;display:flex;justify-content:space-around;align-items:center">
-          <span style="font-size:12px;font-weight:700;color:#1f2328;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:20px;padding:3px 16px">2024</span>
-          <span style="font-size:12px;font-weight:700;color:#1f2328;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:20px;padding:3px 16px">2025</span>
-        </div>
-      </div>
+        <!-- ── Axes ── -->
+        <line x1="60" y1="20" x2="60" y2="250" stroke="#e5e7eb" stroke-width="1"/>
+
+        <!-- ── GARIS (digambar sebelum marker) ── -->
+        <line x1="140" y1="92"  x2="620" y2="59"  stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="140" y1="151" x2="620" y2="115" stroke="#f59e0b" stroke-width="2"   stroke-linecap="round" stroke-dasharray="6 4"/>
+        <line x1="140" y1="171" x2="620" y2="132" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="140" y1="194" x2="620" y2="155" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+
+        <!-- ── Financial Services (#3b82d4) ── -->
+        <text x="128" y="82"  text-anchor="end"   font-size="11" font-weight="700" fill="#3b82d4">68%</text>
+        <circle class="trend-marker" cx="140" cy="92"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2024: 68%</title></circle>
+        <text x="632" y="48"  text-anchor="start" font-size="11" font-weight="700" fill="#3b82d4">78%</text>
+        <circle class="trend-marker" cx="620" cy="59"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2025: 78%</title></circle>
+
+        <!-- ── Rata-rata Nasional (#f59e0b) ── -->
+        <text x="128" y="141" text-anchor="end"   font-size="11" font-weight="700" fill="#d97706">50%</text>
+        <circle class="trend-marker" cx="140" cy="151" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2024: 50%</title></circle>
+        <text x="632" y="108" text-anchor="start" font-size="11" font-weight="700" fill="#d97706">61%</text>
+        <circle class="trend-marker" cx="620" cy="115" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2025: 61%</title></circle>
+
+        <!-- ── Manufacturing (#7c5cd8) ── -->
+        <text x="128" y="187" text-anchor="end"   font-size="11" font-weight="700" fill="#7c5cd8">44%</text>
+        <circle class="trend-marker" cx="140" cy="171" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Manufacturing 2024: 44%</title></circle>
+        <text x="632" y="150" text-anchor="start" font-size="11" font-weight="700" fill="#7c5cd8">56%</text>
+        <circle class="trend-marker" cx="620" cy="132" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Manufacturing 2025: 56%</title></circle>
+
+        <!-- ── Healthcare (#059669) ── -->
+        <text x="128" y="208" text-anchor="end"   font-size="11" font-weight="700" fill="#059669">37%</text>
+        <circle class="trend-marker" cx="140" cy="194" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2024: 37%</title></circle>
+        <text x="632" y="172" text-anchor="start" font-size="11" font-weight="700" fill="#059669">49%</text>
+        <circle class="trend-marker" cx="620" cy="155" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2025: 49%</title></circle>
+
+        <!-- ── Pill tahun X-axis ── -->
+        <rect x="104" y="260" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
+        <text x="140" y="275" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2024</text>
+        <rect x="584" y="260" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
+        <text x="620" y="275" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2025</text>
+      </svg>
     </div>
 
     

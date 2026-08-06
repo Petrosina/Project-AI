@@ -186,7 +186,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <div class="chart-grid">
     <div class="card">
       <div class="card-title">Tingkat Adopsi AI per Industri (%)</div>
-      <div class="card-subtitle">Gabungan 2024–2025 · Skala adopsi aktif (pilot + production)</div>
+      <div class="card-subtitle">Persentase perusahaan yang telah mengimplementasikan AI secara aktif (pilot + production)</div>
       <div class="bar-wrap" id="industry-adoption-bars">
         <div class="bar-row" data-industry="financial">
           <div class="bar-label">Financial Services</div>
@@ -202,11 +202,6 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <div class="bar-label">Healthcare</div>
           <div class="bar-track"><div class="bar-fill" style="width:49%;background:#059669"></div></div>
           <div class="bar-pct">49%</div>
-        </div>
-        <div class="bar-row" data-industry="all">
-          <div class="bar-label">Rata-rata Nasional</div>
-          <div class="bar-track"><div class="bar-fill" style="width:61%;background:#f59e0b"></div></div>
-          <div class="bar-pct">61%</div>
         </div>
       </div>
     </div>
@@ -730,7 +725,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       }
       // dim logic
       var show = true;
-      if (industry && rowInd !== "all" && rowInd !== industry) show = false;
+      if (industry && rowInd !== industry) show = false;
       row.classList.toggle("dimmed", !show);
     });
 

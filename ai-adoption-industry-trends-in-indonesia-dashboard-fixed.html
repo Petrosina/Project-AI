@@ -165,17 +165,17 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <div class="kpi-row" id="kpi-row">
     <div class="kpi-card" style="--accent:#3b82d4" data-kpi="avg">
       <div class="kpi-label">Rata-rata Adopsi AI</div>
-      <div class="kpi-value" id="kpi-avg-val">61%</div>
+      <div class="kpi-value" id="kpi-avg-val">64%</div>
       <div class="kpi-sub" id="kpi-avg-sub">Semua industri · 2024–2025</div>
-      <div class="kpi-delta up" id="kpi-avg-delta">▲ +14 pp vs 2023</div>
+      <div class="kpi-delta up" id="kpi-avg-delta">▲ +17 pp vs 2023</div>
       <div class="kpi-source"><strong>Sumber:</strong> IDC Indonesia AI Adoption Report 2024; Google–Temasek–Bain e-Conomy SEA 2024; Laporan Tahunan 11 bank (2023–2024) — rata-rata agregat adopsi aktif (pilot + production) lintas sektor di Indonesia.</div>
     </div>
-    <div class="kpi-card" style="--accent:#7c5cd8" data-kpi="leader">
+    <div class="kpi-card" style="--accent:#e11d48" data-kpi="leader">
       <div class="kpi-label">Leading Industry</div>
-      <div class="kpi-value" id="kpi-leader-val">FinServ</div>
-      <div class="kpi-sub" id="kpi-leader-sub">Financial Services · 78% adoption rate</div>
-      <div class="kpi-delta up">▲ Tertinggi di Indonesia</div>
-      <div class="kpi-source"><strong>Sumber:</strong> Laporan Tahunan 11 bank (Mandiri, BCA, BRI, BNI, CIMB Niaga, Permata, Danamon, Maybank, UOB, BTN, Bank Ina) 2023–2024; OJK Digital Banking Report 2024 — sektor dengan penetrasi AI tertinggi berdasarkan jumlah use case aktif &amp; investasi teknologi.</div>
+      <div class="kpi-value" id="kpi-leader-val">Telecom</div>
+      <div class="kpi-sub" id="kpi-leader-sub">Telecommunication · 82% adoption rate</div>
+      <div class="kpi-delta up">▲ Tertinggi di Indonesia 2025</div>
+      <div class="kpi-source"><strong>Sumber:</strong> Laporan Tahunan Telkomsel & Telkom 2025 — Telkomsel ChatGPT Go bundling, Ted GenAI, Hyper AI Autonomous Network; Telkom IBM Partnership & 5G 4.913 BTS. Skor komposit tertinggi lintas industri.</div>
     </div>
     <div class="kpi-card" style="--accent:#059669" data-kpi="invest">
       <div class="kpi-label">AI Investment (2025)</div>
@@ -202,6 +202,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <div class="card-subtitle">Persentase perusahaan yang telah mengimplementasikan AI secara aktif (pilot + production)</div>
       </div>
       <div class="bar-wrap" id="industry-adoption-bars" style="gap:22px;flex:1;justify-content:space-evenly;display:flex;flex-direction:column;padding-top:12px">
+        <div class="bar-row" data-industry="telecom">
+          <div class="bar-label">Telecommunication</div>
+          <div class="bar-track" style="height:22px"><div class="bar-fill" style="width:82%;background:#e11d48"></div></div>
+          <div class="bar-pct">82%</div>
+        </div>
         <div class="bar-row" data-industry="financial">
           <div class="bar-label">Financial Services</div>
           <div class="bar-track" style="height:22px"><div class="bar-fill" style="width:78%;background:#3b82d4"></div></div>
@@ -211,11 +216,6 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <div class="bar-label">Mfg &amp; Energy</div>
           <div class="bar-track" style="height:22px"><div class="bar-fill" style="width:58%;background:#7c5cd8"></div></div>
           <div class="bar-pct">58%</div>
-        </div>
-        <div class="bar-row" data-industry="telecom">
-          <div class="bar-label">Telecommunication</div>
-          <div class="bar-track" style="height:22px"><div class="bar-fill" style="width:71%;background:#e11d48"></div></div>
-          <div class="bar-pct">71%</div>
         </div>
         <div class="bar-row" data-industry="healthcare">
           <div class="bar-label">Healthcare</div>
@@ -230,9 +230,10 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <div class="card-subtitle">Estimasi proporsi total investasi AI 2024–2025 · Klik segmen untuk highlight</div>
       <div class="donut-wrap">
         <svg id="donut-svg" viewBox="0 0 160 160" style="width:160px;height:160px;flex-shrink:0;cursor:pointer;overflow:visible">
-          <circle id="donut-financial" cx="80" cy="80" r="56" fill="none" stroke="#3b82d4" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
+          <circle id="donut-financial"     cx="80" cy="80" r="56" fill="none" stroke="#3b82d4" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
+          <circle id="donut-telecom"       cx="80" cy="80" r="56" fill="none" stroke="#e11d48" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
           <circle id="donut-manufacturing" cx="80" cy="80" r="56" fill="none" stroke="#7c5cd8" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
-          <circle id="donut-healthcare" cx="80" cy="80" r="56" fill="none" stroke="#059669" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
+          <circle id="donut-healthcare"    cx="80" cy="80" r="56" fill="none" stroke="#059669" stroke-width="28" style="transition:stroke-width .2s;cursor:pointer"></circle>
           <circle cx="80" cy="80" r="42" fill="#fff"></circle>
           <text id="donut-center-val" x="80" y="75" text-anchor="middle" font-size="13" font-weight="700" fill="#1f2328">$2.1B</text>
           <text id="donut-center-lbl" x="80" y="90" text-anchor="middle" font-size="9" fill="#57606a">Total AI Invest</text>
@@ -241,17 +242,22 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <div class="legend-item" style="cursor:pointer" data-donut="financial">
             <span class="legend-dot" style="background:#3b82d4"></span>
             <span>Financial Services</span>
-            <span class="legend-val">52% · ~$1.09B</span>
+            <span class="legend-val">43% · ~$903M</span>
+          </div>
+          <div class="legend-item" style="cursor:pointer" data-donut="telecom">
+            <span class="legend-dot" style="background:#e11d48"></span>
+            <span>Telecommunication</span>
+            <span class="legend-val">24% · ~$504M</span>
           </div>
           <div class="legend-item" style="cursor:pointer" data-donut="manufacturing">
             <span class="legend-dot" style="background:#7c5cd8"></span>
-            <span>Manufacturing</span>
-            <span class="legend-val">29% · ~$609M</span>
+            <span>Mfg &amp; Energy</span>
+            <span class="legend-val">20% · ~$420M</span>
           </div>
           <div class="legend-item" style="cursor:pointer" data-donut="healthcare">
             <span class="legend-dot" style="background:#059669"></span>
             <span>Healthcare</span>
-            <span class="legend-val">19% · ~$399M</span>
+            <span class="legend-val">13% · ~$273M</span>
           </div>
           <div style="margin-top:8px;font-size:10px;color:#9ca3af;line-height:1.5">Klik segmen donut atau<br />label untuk highlight</div>
         </div>
@@ -320,34 +326,46 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <line x1="60" y1="20" x2="60" y2="250" stroke="#e5e7eb" stroke-width="1"/>
 
         <!-- ── GARIS (digambar sebelum marker) ── -->
+        <!-- Telecom:      70%→y=86  82%→y=46  -->
+        <!-- Financial:    68%→y=92  78%→y=59  -->
+        <!-- Avg Nasional: 56%→y=118 64%→y=92  (diupdate) -->
+        <!-- Mfg & Energy: 46%→y=151 58%→y=112 (diupdate) -->
+        <!-- Healthcare:   37%→y=181 49%→y=152 -->
+        <line x1="140" y1="86"  x2="620" y2="46"  stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
         <line x1="140" y1="92"  x2="620" y2="59"  stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="140" y1="151" x2="620" y2="115" stroke="#f59e0b" stroke-width="2"   stroke-linecap="round" stroke-dasharray="6 4"/>
-        <line x1="140" y1="171" x2="620" y2="132" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="140" y1="194" x2="620" y2="155" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="140" y1="118" x2="620" y2="92"  stroke="#f59e0b" stroke-width="2"   stroke-linecap="round" stroke-dasharray="6 4"/>
+        <line x1="140" y1="151" x2="620" y2="112" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="140" y1="181" x2="620" y2="152" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
 
-        <!-- ── Financial Services (#3b82d4) ── -->
-        <text x="128" y="82"  text-anchor="end"   font-size="11" font-weight="700" fill="#3b82d4">68%</text>
+        <!-- ── Telecommunication (#e11d48) — 70% → 82% ── -->
+        <text x="128" y="76"  text-anchor="end"   font-size="11" font-weight="700" fill="#e11d48">70%</text>
+        <circle class="trend-marker" cx="140" cy="86"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2024: 70%</title></circle>
+        <text x="632" y="68"  text-anchor="start" font-size="11" font-weight="700" fill="#e11d48">82%</text>
+        <circle class="trend-marker" cx="620" cy="46"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2025: 82%</title></circle>
+
+        <!-- ── Financial Services (#3b82d4) — 68% → 78% ── -->
+        <text x="128" y="106" text-anchor="end"   font-size="11" font-weight="700" fill="#3b82d4">68%</text>
         <circle class="trend-marker" cx="140" cy="92"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2024: 68%</title></circle>
-        <text x="632" y="48"  text-anchor="start" font-size="11" font-weight="700" fill="#3b82d4">78%</text>
+        <text x="632" y="86"  text-anchor="start" font-size="11" font-weight="700" fill="#3b82d4">78%</text>
         <circle class="trend-marker" cx="620" cy="59"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2025: 78%</title></circle>
 
-        <!-- ── Rata-rata Nasional (#f59e0b) ── -->
-        <text x="128" y="141" text-anchor="end"   font-size="11" font-weight="700" fill="#d97706">50%</text>
-        <circle class="trend-marker" cx="140" cy="151" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2024: 50%</title></circle>
-        <text x="632" y="108" text-anchor="start" font-size="11" font-weight="700" fill="#d97706">61%</text>
-        <circle class="trend-marker" cx="620" cy="115" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2025: 61%</title></circle>
+        <!-- ── Rata-rata Nasional (#f59e0b) — 56% → 64% ── -->
+        <text x="128" y="108" text-anchor="end"   font-size="11" font-weight="700" fill="#d97706">56%</text>
+        <circle class="trend-marker" cx="140" cy="118" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2024: 56%</title></circle>
+        <text x="632" y="107" text-anchor="start" font-size="11" font-weight="700" fill="#d97706">64%</text>
+        <circle class="trend-marker" cx="620" cy="92"  r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2025: 64%</title></circle>
 
-        <!-- ── Manufacturing (#7c5cd8) ── -->
-        <text x="128" y="187" text-anchor="end"   font-size="11" font-weight="700" fill="#7c5cd8">44%</text>
-        <circle class="trend-marker" cx="140" cy="171" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Manufacturing 2024: 44%</title></circle>
-        <text x="632" y="150" text-anchor="start" font-size="11" font-weight="700" fill="#7c5cd8">56%</text>
-        <circle class="trend-marker" cx="620" cy="132" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Manufacturing 2025: 56%</title></circle>
+        <!-- ── Mfg &amp; Energy (#7c5cd8) — 46% → 58% ── -->
+        <text x="128" y="165" text-anchor="end"   font-size="11" font-weight="700" fill="#7c5cd8">46%</text>
+        <circle class="trend-marker" cx="140" cy="151" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2024: 46%</title></circle>
+        <text x="632" y="126" text-anchor="start" font-size="11" font-weight="700" fill="#7c5cd8">58%</text>
+        <circle class="trend-marker" cx="620" cy="112" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2025: 58%</title></circle>
 
-        <!-- ── Healthcare (#059669) ── -->
-        <text x="128" y="208" text-anchor="end"   font-size="11" font-weight="700" fill="#059669">37%</text>
-        <circle class="trend-marker" cx="140" cy="194" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2024: 37%</title></circle>
-        <text x="632" y="172" text-anchor="start" font-size="11" font-weight="700" fill="#059669">49%</text>
-        <circle class="trend-marker" cx="620" cy="155" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2025: 49%</title></circle>
+        <!-- ── Healthcare (#059669) — 37% → 49% ── -->
+        <text x="128" y="195" text-anchor="end"   font-size="11" font-weight="700" fill="#059669">37%</text>
+        <circle class="trend-marker" cx="140" cy="181" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2024: 37%</title></circle>
+        <text x="632" y="167" text-anchor="start" font-size="11" font-weight="700" fill="#059669">49%</text>
+        <circle class="trend-marker" cx="620" cy="152" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2025: 49%</title></circle>
 
         <!-- ── Pill tahun X-axis ── -->
         <rect x="104" y="260" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
@@ -378,6 +396,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
     
     <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;padding:8px 14px;font-size:12px">
+        <span style="color:#e11d48;font-weight:700">Telecommunication</span>
+        <span style="color:#57606a;margin-left:6px">70% → 82%</span>
+        <span style="color:#16a34a;font-weight:700;margin-left:6px">▲ +12 pp</span>
+      </div>
       <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:8px 14px;font-size:12px">
         <span style="color:#1d4ed8;font-weight:700">Financial Services</span>
         <span style="color:#57606a;margin-left:6px">68% → 78%</span>
@@ -387,11 +410,6 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <span style="color:#6d28d9;font-weight:700">Mfg &amp; Energy</span>
         <span style="color:#57606a;margin-left:6px">46% → 58%</span>
         <span style="color:#16a34a;font-weight:700;margin-left:6px">▲ +12 pp</span>
-      </div>
-      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:8px;padding:8px 14px;font-size:12px">
-        <span style="color:#e11d48;font-weight:700">Telecommunication</span>
-        <span style="color:#57606a;margin-left:6px">60% → 71%</span>
-        <span style="color:#16a34a;font-weight:700;margin-left:6px">▲ +11 pp</span>
       </div>
       <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;padding:8px 14px;font-size:12px">
         <span style="color:#065f46;font-weight:700">Healthcare</span>
@@ -523,37 +541,37 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <tr data-company="pln" data-industry="manufacturing">
             <td><strong>PLN</strong></td>
             <td style="color:#7c5cd8;font-weight:600">Manufacturing &amp; Energy</td>
-            <td><span class="cell-mid">58</span></td><td><span class="cell-mid">68</span></td>
-            <td style="color:#16a34a;font-weight:700">▲ +10</td><td>Expanding</td>
-            <td style="font-size:11px">AI Grid Management, Smart Meter Analytics, Predictive Maint.</td>
+            <td><span class="cell-mid">62</span></td><td><span class="cell-high">75</span></td>
+            <td style="color:#16a34a;font-weight:700">▲ +13</td><td>Scaling</td>
+            <td style="font-size:11px">GenAI SSoT, SMARTER 4.0, PLN Mobile 69Jt users, SPKLU 3.233 unit</td>
           </tr>
           <tr data-company="astra" data-industry="manufacturing">
             <td><strong>Astra International</strong></td>
             <td style="color:#7c5cd8;font-weight:600">Manufacturing &amp; Energy</td>
-            <td><span class="cell-mid">55</span></td><td><span class="cell-mid">65</span></td>
+            <td><span class="cell-mid">52</span></td><td><span class="cell-mid">62</span></td>
             <td style="color:#16a34a;font-weight:700">▲ +10</td><td>Expanding</td>
-            <td style="font-size:11px">AI Manufacturing Quality, Supply Chain AI, Digital Financing</td>
+            <td style="font-size:11px">Astranauts AI Innovation, Digitalisasi Multi-BU, Astra 2030 Sustainability</td>
           </tr>
           <tr data-company="pertamina" data-industry="manufacturing">
             <td><strong>Pertamina</strong></td>
             <td style="color:#7c5cd8;font-weight:600">Manufacturing &amp; Energy</td>
-            <td><span class="cell-mid">52</span></td><td><span class="cell-mid">62</span></td>
-            <td style="color:#16a34a;font-weight:700">▲ +10</td><td>Expanding</td>
-            <td style="font-size:11px">Predictive Maintenance Kilang, ESG AI Monitoring, GenAI Internal</td>
+            <td><span class="cell-low">49</span></td><td><span class="cell-mid">63</span></td>
+            <td style="color:#16a34a;font-weight:700">▲ +14</td><td>Expanding</td>
+            <td style="font-size:11px">Pertamina Digital Hub, Cloud Analytics, Energy Mgmt System AI</td>
           </tr>
           <tr data-company="telkom" data-industry="telecom">
             <td><strong>Telkom Indonesia</strong></td>
             <td style="color:#e11d48;font-weight:600">Telecommunication</td>
-            <td><span class="cell-high">72</span></td><td><span class="cell-high">82</span></td>
-            <td style="color:#16a34a;font-weight:700">▲ +10</td><td>Scaling</td>
-            <td style="font-size:11px">BigBox AI Platform, NeuralAI, Network Optimization AI</td>
+            <td><span class="cell-mid">68</span></td><td><span class="cell-high">79</span></td>
+            <td style="color:#16a34a;font-weight:700">▲ +11</td><td>Scaling</td>
+            <td style="font-size:11px">IBM Partnership, TDE AI Infra, NeutraDC, 5G 4.913 BTS, TLKM 30</td>
           </tr>
           <tr data-company="telkomsel" data-industry="telecom">
             <td><strong>Telkomsel</strong></td>
             <td style="color:#e11d48;font-weight:600">Telecommunication</td>
-            <td><span class="cell-mid">68</span></td><td><span class="cell-high">78</span></td>
-            <td style="color:#16a34a;font-weight:700">▲ +10</td><td>Expanding</td>
-            <td style="font-size:11px">AI Customer Experience, Network AI Optimization, Chatbot Veronika</td>
+            <td><span class="cell-high">72</span></td><td><span class="cell-high">84</span></td>
+            <td style="color:#16a34a;font-weight:700">▲ +12</td><td>Scaling</td>
+            <td style="font-size:11px">Ted GenAI, Veronika Azure AI, ChatGPT Go, Perplexity Pro, Hyper AI</td>
           </tr>
         </tbody>
       </table>
@@ -619,11 +637,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <div class="bubble-item" data-company="btn" data-industry="financial"><div class="bubble-name">BTN</div><div class="bubble-score" style="--c:#bfdbfe">57</div><div class="bubble-tag">Financial · Piloting</div></div>
       <div class="bubble-item" data-company="kalbe" data-industry="healthcare"><div class="bubble-name">Kalbe Farma</div><div class="bubble-score" style="--c:#059669">68</div><div class="bubble-tag">Healthcare · Expanding</div></div>
       <div class="bubble-item" data-company="siloam" data-industry="healthcare"><div class="bubble-name">Siloam Hospitals</div><div class="bubble-score" style="--c:#34d399">63</div><div class="bubble-tag">Healthcare · Piloting</div></div>
-      <div class="bubble-item" data-company="pln" data-industry="manufacturing"><div class="bubble-name">PLN</div><div class="bubble-score" style="--c:#7c5cd8">68</div><div class="bubble-tag">Mfg &amp; Energy · Expanding</div></div>
-      <div class="bubble-item" data-company="astra" data-industry="manufacturing"><div class="bubble-name">Astra International</div><div class="bubble-score" style="--c:#7c5cd8">65</div><div class="bubble-tag">Mfg &amp; Energy · Expanding</div></div>
-      <div class="bubble-item" data-company="pertamina" data-industry="manufacturing"><div class="bubble-name">Pertamina</div><div class="bubble-score" style="--c:#a78bfa">62</div><div class="bubble-tag">Mfg &amp; Energy · Expanding</div></div>
-      <div class="bubble-item" data-company="telkom" data-industry="telecom"><div class="bubble-name">Telkom Indonesia</div><div class="bubble-score" style="--c:#e11d48">82</div><div class="bubble-tag">Telecom · Scaling</div></div>
-      <div class="bubble-item" data-company="telkomsel" data-industry="telecom"><div class="bubble-name">Telkomsel</div><div class="bubble-score" style="--c:#fb7185">78</div><div class="bubble-tag">Telecom · Expanding</div></div>
+      <div class="bubble-item" data-company="pln" data-industry="manufacturing"><div class="bubble-name">PLN</div><div class="bubble-score" style="--c:#7c5cd8">75</div><div class="bubble-tag">Mfg &amp; Energy · Scaling</div></div>
+      <div class="bubble-item" data-company="astra" data-industry="manufacturing"><div class="bubble-name">Astra International</div><div class="bubble-score" style="--c:#7c5cd8">62</div><div class="bubble-tag">Mfg &amp; Energy · Expanding</div></div>
+      <div class="bubble-item" data-company="pertamina" data-industry="manufacturing"><div class="bubble-name">Pertamina</div><div class="bubble-score" style="--c:#a78bfa">63</div><div class="bubble-tag">Mfg &amp; Energy · Expanding</div></div>
+      <div class="bubble-item" data-company="telkom" data-industry="telecom"><div class="bubble-name">Telkom Indonesia</div><div class="bubble-score" style="--c:#e11d48">79</div><div class="bubble-tag">Telecom · Scaling</div></div>
+      <div class="bubble-item" data-company="telkomsel" data-industry="telecom"><div class="bubble-name">Telkomsel</div><div class="bubble-score" style="--c:#fb7185">84</div><div class="bubble-tag">Telecom · Scaling</div></div>
       <div class="bubble-item" data-company="bankina" data-industry="financial"><div class="bubble-name">Bank Ina Perdana</div><div class="bubble-score" style="--c:#dbeafe">36</div><div class="bubble-tag">Financial · Exploring</div></div>
       <div class="bubble-item" data-company="kimia" data-industry="healthcare"><div class="bubble-name">Kimia Farma</div><div class="bubble-score" style="--c:#f59e0b">52</div><div class="bubble-tag">Healthcare · Piloting</div></div>
     </div>
@@ -936,7 +954,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <div class="two-col">
     <div class="card">
       <div class="card-title">Manfaat Utama Implementasi AI</div>
-      <div class="card-subtitle">% perusahaan melaporkan manfaat ini · Basis: 11 bank + healthcare + manufacturing</div>
+      <div class="card-subtitle">% perusahaan melaporkan manfaat ini · Basis: 11 bank + healthcare + manufacturing + telecom</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
         <div class="pill" style="border-left:3px solid #3b82d4"><div class="pill-text">Efisiensi Operasional &amp; Otomasi Proses</div><div class="pill-pct" style="--pc:#1d4ed8">89%</div></div>
         <div class="pill" style="border-left:3px solid #3b82d4"><div class="pill-text">Peningkatan Customer Experience</div><div class="pill-pct" style="--pc:#1d4ed8">85%</div></div>
@@ -950,7 +968,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     </div>
     <div class="card">
       <div class="card-title">Tantangan Utama Implementasi AI</div>
-      <div class="card-subtitle">% perusahaan melaporkan hambatan ini · Basis: 11 bank + healthcare + manufacturing</div>
+      <div class="card-subtitle">% perusahaan melaporkan hambatan ini · Basis: 11 bank + healthcare + manufacturing + telecom</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
         <div class="pill" style="border-left:3px solid #dc2626"><div class="pill-text">Integrasi dengan Legacy System</div><div class="pill-pct" style="--pc:#dc2626">84%</div></div>
         <div class="pill" style="border-left:3px solid #dc2626"><div class="pill-text">Keterbatasan Talent &amp; SDM AI</div><div class="pill-pct" style="--pc:#dc2626">81%</div></div>
@@ -969,20 +987,20 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     <div class="card-title" style="margin-bottom:10px">Key Insights · Ringkasan Analisis</div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px">
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
-        <div style="font-size:11px;font-weight:700;color:#3b82d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Financial Services</div>
-        <div style="font-size:12px;color:#1f2328;line-height:1.6">Sektor paling matang dengan 11 bank dianalisis. Mandiri &amp; BCA memimpin (skor 91 &amp; 88). CIMB Niaga &amp; Permata Bank tumbuh agresif di Expanding tier. BTN fokus di KPR AI. Bank Ina Perdana masih tahap Exploring.</div>
+        <div style="font-size:11px;font-weight:700;color:#e11d48;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🏆 Telecommunication · #1</div>
+        <div style="font-size:12px;color:#1f2328;line-height:1.6">Sektor dengan adopsi AI <strong>tertinggi</strong> di Indonesia (82%). Telkomsel memimpin dengan <strong>Ted GenAI</strong>, ChatGPT Go &amp; Perplexity Pro bundling, Hyper AI Autonomous Network, dan Veronika (Azure OpenAI) — skor 84 (Scaling). Telkom Indonesia diperkuat kemitraan strategis IBM (Jan 2025) &amp; 5G 4.913 BTS.</div>
       </div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
-        <div style="font-size:11px;font-weight:700;color:#7c5cd8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Manufacturing &amp; Energy</div>
-        <div style="font-size:12px;color:#1f2328;line-height:1.6">PLN, Astra, &amp; Pertamina memimpin adopsi AI di sektor ini. PLN fokus di smart grid &amp; predictive maintenance. Astra unggul di AI manufacturing quality. Pertamina agresif di ESG AI &amp; predictive kilang (+10 pp).</div>
+        <div style="font-size:11px;font-weight:700;color:#3b82d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Financial Services · #2</div>
+        <div style="font-size:12px;color:#1f2328;line-height:1.6">11 bank dianalisis, rata-rata adopsi 78%. Mandiri &amp; BCA memimpin (skor 91 &amp; 88) dengan GenAI internal &amp; fraud detection. CIMB Niaga &amp; Permata Bank agresif di Expanding tier. BTN fokus KPR AI. Bank Ina Perdana tahap Exploring (+8 pp).</div>
       </div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
-        <div style="font-size:11px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Healthcare</div>
-        <div style="font-size:12px;color:#1f2328;line-height:1.6">Kalbe Farma terdepan dalam AI drug discovery di Asia Tenggara. Siloam mengimplementasikan AI radiology. Kimia Farma masih early stage — potensi besar di inventory AI &amp; digital pharmacy.</div>
+        <div style="font-size:11px;font-weight:700;color:#7c5cd8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Manufacturing &amp; Energy · #3</div>
+        <div style="font-size:12px;color:#1f2328;line-height:1.6"><strong>PLN</strong> naik ke Scaling (75) lewat SMARTER 4.0, GenAI SSoT &amp; PLN Mobile 69Jt users. <strong>Pertamina</strong> lompat +14 pp berkat Digital Hub 2025. <strong>Astra</strong> Piloting→Expanding via Astranauts Innovation &amp; digitalisasi multi-bisnis unit.</div>
       </div>
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
-        <div style="font-size:11px;font-weight:700;color:#e11d48;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Telecommunication</div>
-        <div style="font-size:12px;color:#1f2328;line-height:1.6">Telkom Indonesia memimpin dengan BigBox AI Platform &amp; NeuralAI (skor 82). Telkomsel unggul di AI network optimization &amp; Chatbot Veronika. Sektor ini mencatat adopsi AI tertinggi ke-2 setelah Financial Services.</div>
+        <div style="font-size:11px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Healthcare · #4</div>
+        <div style="font-size:12px;color:#1f2328;line-height:1.6">Kalbe Farma terdepan dalam AI drug discovery &amp; supply chain AI di Asia Tenggara (skor 68). Siloam mengimplementasikan AI radiology &amp; EMR automation. Kimia Farma early stage — potensi besar di inventory forecasting AI &amp; digital pharmacy.</div>
       </div>
     </div>
   </div>
@@ -1007,28 +1025,28 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   // ── Data per year ──────────────────────────────────────────────
   var DATA = {
     "All Years (2024\u20132025)": {
-      kpi: { avg: "61%", avgSub: "Semua industri \xb7 2024\u20132025", avgDelta: "\u25b2 +14 pp vs 2023",
-             leader: "FinServ", leaderSub: "Financial Services \xb7 78% adoption rate",
+      kpi: { avg: "64%", avgSub: "Semua industri \xb7 2024\u20132025", avgDelta: "\u25b2 +17 pp vs 2023",
+             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate",
              invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
-      bars: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" },
-      barWidths: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" }
+      bars: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" },
+      barWidths: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" }
     },
     "2024": {
-      kpi: { avg: "50%", avgSub: "Semua industri \xb7 2024", avgDelta: "\u25b2 +6 pp vs 2023",
+      kpi: { avg: "56%", avgSub: "Semua industri \xb7 2024", avgDelta: "\u25b2 +9 pp vs 2023",
              leader: "FinServ", leaderSub: "Financial Services \xb7 68% adoption rate",
              invest: "$1.5B", investDelta: "\u25b2 +24% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
-      bars: { financial: "68%", manufacturing: "44%", healthcare: "37%", avg: "50%" },
-      barWidths: { financial: "68%", manufacturing: "44%", healthcare: "37%", avg: "50%" }
+      bars: { financial: "68%", manufacturing: "46%", healthcare: "37%", telecom: "70%", avg: "56%" },
+      barWidths: { financial: "68%", manufacturing: "46%", healthcare: "37%", telecom: "70%", avg: "56%" }
     },
     "2025": {
-      kpi: { avg: "61%", avgSub: "Semua industri \xb7 2025", avgDelta: "\u25b2 +11 pp vs 2024",
-             leader: "FinServ", leaderSub: "Financial Services \xb7 78% adoption rate",
+      kpi: { avg: "64%", avgSub: "Semua industri \xb7 2025", avgDelta: "\u25b2 +8 pp vs 2024",
+             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate",
              invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
-      bars: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" },
-      barWidths: { financial: "78%", manufacturing: "56%", healthcare: "49%", avg: "61%" }
+      bars: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" },
+      barWidths: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" }
     }
   };
 
@@ -1178,10 +1196,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
   // ── Donut chart interactive highlight ─────────────────────────
   var C = 2 * Math.PI * 56; // circumference
+  // Financial 43%, Telecom 24%, Manufacturing 20%, Healthcare 13%
   var SEGMENTS = [
-    { id: "donut-financial",     pct: 0.52, prev: 0 },
-    { id: "donut-manufacturing", pct: 0.29, prev: 0.52 },
-    { id: "donut-healthcare",    pct: 0.19, prev: 0.81 }
+    { id: "donut-financial",     pct: 0.43, prev: 0 },
+    { id: "donut-telecom",       pct: 0.24, prev: 0.43 },
+    { id: "donut-manufacturing", pct: 0.20, prev: 0.67 },
+    { id: "donut-healthcare",    pct: 0.13, prev: 0.87 }
   ];
   SEGMENTS.forEach(function (seg) {
     var el = document.getElementById(seg.id);

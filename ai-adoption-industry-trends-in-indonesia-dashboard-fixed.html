@@ -294,7 +294,36 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           Mfg        56% → y_marker=132 → label y=150  (bawah, +18px dari Avg label)
           Healthcare 49% → y_marker=155 → label y=172  (bawah, +22px dari Mfg label)
       -->
-      <svg id="trend-svg" viewBox="0 0 760 290" style="width:100%;display:block;overflow:visible" aria-label="Line chart tren adopsi AI 2024 vs 2025">
+      <!--
+        viewBox 0 0 820 295
+        Plot area x: 60..660   Y: y=20 (90%) … y=250 (20%)  skala 3.286px/pct
+        y(pct) = 250 - (pct-20)*3.286
+
+        Nilai marker (y tepat di marker):
+          Telecom 2024  70% → y=86   Telecom 2025  82% → y=46
+          Financial2024 68% → y=92   Financial2025 78% → y=59
+          Avg Nas 2024  56% → y=118  Avg Nas 2025  64% → y=92
+          Mfg 2024      46% → y=151  Mfg 2025      58% → y=112
+          Healthcare2024 37%→ y=181  Healthcare2025 49%→ y=152
+
+        Label kiri (sisi 2024): text-anchor="end" x=108  — connector tick dari x=112 ke x=134
+        Label kanan (sisi 2025): text-anchor="start" x=668 — connector tick dari x=636 ke x=662
+
+        Posisi label kiri (min gap 16px antar label, baseline = marker_y + 4):
+          Telecom   label_y = 90   (dekat marker 86)
+          Financial label_y = 107  (gap 17px dari Telecom)
+          Avg       label_y = 124  (gap 17px dari Financial)
+          Mfg       label_y = 156  (gap 32px, cukup jauh)
+          Healthcare label_y= 185  (gap 29px)
+
+        Posisi label kanan (sorted by value, spread min 16px):
+          Telecom   82% marker y=46   label_y = 42   (atas, di atas marker)
+          Financial 78% marker y=59   label_y = 60   (dekat marker)
+          Avg       64% marker y=92   label_y = 95   (bawah marker sedikit)
+          Mfg       58% marker y=112  label_y = 128  (bawah)
+          Healthcare49% marker y=152  label_y = 156  (dekat marker)
+      -->
+      <svg id="trend-svg" viewBox="0 0 820 295" style="width:100%;display:block;overflow:visible" aria-label="Line chart tren adopsi AI 2024 vs 2025">
         <defs>
           <style>
             .trend-marker{transition:r .18s ease,filter .18s ease;cursor:pointer}
@@ -313,65 +342,89 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <text x="54" y="255" text-anchor="end" font-size="10" fill="#9ca3af">20%</text>
 
         <!-- ── Grid lines ── -->
-        <line x1="60" y1="20"  x2="640" y2="20"  stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="53"  x2="640" y2="53"  stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="86"  x2="640" y2="86"  stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="119" x2="640" y2="119" stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="152" x2="640" y2="152" stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="185" x2="640" y2="185" stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="218" x2="640" y2="218" stroke="#f0f2f5" stroke-width="1"/>
-        <line x1="60" y1="250" x2="640" y2="250" stroke="#e5e7eb" stroke-width="1"/>
+        <line x1="60" y1="20"  x2="660" y2="20"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="53"  x2="660" y2="53"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="86"  x2="660" y2="86"  stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="119" x2="660" y2="119" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="152" x2="660" y2="152" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="185" x2="660" y2="185" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="218" x2="660" y2="218" stroke="#f0f2f5" stroke-width="1"/>
+        <line x1="60" y1="250" x2="660" y2="250" stroke="#e5e7eb" stroke-width="1"/>
 
         <!-- ── Axes ── -->
         <line x1="60" y1="20" x2="60" y2="250" stroke="#e5e7eb" stroke-width="1"/>
 
-        <!-- ── GARIS (digambar sebelum marker) ── -->
-        <!-- Telecom:      70%→y=86  82%→y=46  -->
-        <!-- Financial:    68%→y=92  78%→y=59  -->
-        <!-- Avg Nasional: 56%→y=118 64%→y=92  (diupdate) -->
-        <!-- Mfg & Energy: 46%→y=151 58%→y=112 (diupdate) -->
-        <!-- Healthcare:   37%→y=181 49%→y=152 -->
-        <line x1="140" y1="86"  x2="620" y2="46"  stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="140" y1="92"  x2="620" y2="59"  stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="140" y1="118" x2="620" y2="92"  stroke="#f59e0b" stroke-width="2"   stroke-linecap="round" stroke-dasharray="6 4"/>
-        <line x1="140" y1="151" x2="620" y2="112" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/>
-        <line x1="140" y1="181" x2="620" y2="152" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+        <!-- ── GARIS DATA (digambar sebelum marker) ── -->
+        <line x1="160" y1="86"  x2="640" y2="46"  stroke="#e11d48" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="160" y1="92"  x2="640" y2="59"  stroke="#3b82d4" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="160" y1="118" x2="640" y2="92"  stroke="#f59e0b" stroke-width="2"   stroke-linecap="round" stroke-dasharray="6 4"/>
+        <line x1="160" y1="151" x2="640" y2="112" stroke="#7c5cd8" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="160" y1="181" x2="640" y2="152" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
 
-        <!-- ── Telecommunication (#e11d48) — 70% → 82% ── -->
-        <text x="128" y="76"  text-anchor="end"   font-size="11" font-weight="700" fill="#e11d48">70%</text>
-        <circle class="trend-marker" cx="140" cy="86"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2024: 70%</title></circle>
-        <text x="632" y="68"  text-anchor="start" font-size="11" font-weight="700" fill="#e11d48">82%</text>
-        <circle class="trend-marker" cx="620" cy="46"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2025: 82%</title></circle>
+        <!-- ── MARKERS 2024 ── -->
+        <circle class="trend-marker" cx="160" cy="86"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2024: 70%</title></circle>
+        <circle class="trend-marker" cx="160" cy="92"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2024: 68%</title></circle>
+        <circle class="trend-marker" cx="160" cy="118" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2024: 56%</title></circle>
+        <circle class="trend-marker" cx="160" cy="151" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2024: 46%</title></circle>
+        <circle class="trend-marker" cx="160" cy="181" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2024: 37%</title></circle>
 
-        <!-- ── Financial Services (#3b82d4) — 68% → 78% ── -->
-        <text x="128" y="106" text-anchor="end"   font-size="11" font-weight="700" fill="#3b82d4">68%</text>
-        <circle class="trend-marker" cx="140" cy="92"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2024: 68%</title></circle>
-        <text x="632" y="86"  text-anchor="start" font-size="11" font-weight="700" fill="#3b82d4">78%</text>
-        <circle class="trend-marker" cx="620" cy="59"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2025: 78%</title></circle>
+        <!-- ── MARKERS 2025 ── -->
+        <circle class="trend-marker" cx="640" cy="46"  r="6" fill="#fff" stroke="#e11d48" stroke-width="2.5" style="color:#e11d48"><title>Telecommunication 2025: 82%</title></circle>
+        <circle class="trend-marker" cx="640" cy="59"  r="6" fill="#fff" stroke="#3b82d4" stroke-width="2.5" style="color:#3b82d4"><title>Financial Services 2025: 78%</title></circle>
+        <circle class="trend-marker" cx="640" cy="92"  r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2025: 64%</title></circle>
+        <circle class="trend-marker" cx="640" cy="112" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2025: 58%</title></circle>
+        <circle class="trend-marker" cx="640" cy="152" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2025: 49%</title></circle>
 
-        <!-- ── Rata-rata Nasional (#f59e0b) — 56% → 64% ── -->
-        <text x="128" y="108" text-anchor="end"   font-size="11" font-weight="700" fill="#d97706">56%</text>
-        <circle class="trend-marker" cx="140" cy="118" r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2024: 56%</title></circle>
-        <text x="632" y="107" text-anchor="start" font-size="11" font-weight="700" fill="#d97706">64%</text>
-        <circle class="trend-marker" cx="620" cy="92"  r="6" fill="#fff" stroke="#f59e0b" stroke-width="2"   style="color:#f59e0b"><title>Rata-rata Nasional 2025: 64%</title></circle>
+        <!-- ══ LABEL KIRI 2024 (x=108, connector tick x1=112 x2=154) ══ -->
+        <!-- Telecom 70% — label_y=90, marker cy=86 -->
+        <line x1="112" y1="86"  x2="153" y2="86"  stroke="#e11d48" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="108" y="90"  text-anchor="end" font-size="11" font-weight="700" fill="#e11d48">70%</text>
 
-        <!-- ── Mfg &amp; Energy (#7c5cd8) — 46% → 58% ── -->
-        <text x="128" y="165" text-anchor="end"   font-size="11" font-weight="700" fill="#7c5cd8">46%</text>
-        <circle class="trend-marker" cx="140" cy="151" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2024: 46%</title></circle>
-        <text x="632" y="126" text-anchor="start" font-size="11" font-weight="700" fill="#7c5cd8">58%</text>
-        <circle class="trend-marker" cx="620" cy="112" r="6" fill="#fff" stroke="#7c5cd8" stroke-width="2.5" style="color:#7c5cd8"><title>Mfg &amp; Energy 2025: 58%</title></circle>
+        <!-- Financial 68% — label_y=107, marker cy=92 -->
+        <line x1="112" y1="92"  x2="153" y2="92"  stroke="#3b82d4" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="108" y="107" text-anchor="end" font-size="11" font-weight="700" fill="#3b82d4">68%</text>
 
-        <!-- ── Healthcare (#059669) — 37% → 49% ── -->
-        <text x="128" y="195" text-anchor="end"   font-size="11" font-weight="700" fill="#059669">37%</text>
-        <circle class="trend-marker" cx="140" cy="181" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2024: 37%</title></circle>
-        <text x="632" y="167" text-anchor="start" font-size="11" font-weight="700" fill="#059669">49%</text>
-        <circle class="trend-marker" cx="620" cy="152" r="6" fill="#fff" stroke="#059669" stroke-width="2.5" style="color:#059669"><title>Healthcare 2025: 49%</title></circle>
+        <!-- Avg 56% — label_y=124, marker cy=118 -->
+        <line x1="112" y1="118" x2="153" y2="118" stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="108" y="124" text-anchor="end" font-size="11" font-weight="700" fill="#d97706">56%</text>
+
+        <!-- Mfg 46% — label_y=155, marker cy=151 -->
+        <line x1="112" y1="151" x2="153" y2="151" stroke="#7c5cd8" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="108" y="155" text-anchor="end" font-size="11" font-weight="700" fill="#7c5cd8">46%</text>
+
+        <!-- Healthcare 37% — label_y=185, marker cy=181 -->
+        <line x1="112" y1="181" x2="153" y2="181" stroke="#059669" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="108" y="185" text-anchor="end" font-size="11" font-weight="700" fill="#059669">37%</text>
+
+        <!-- ══ LABEL KANAN 2025 (x=652, connector tick x1=647 x2=660) ══
+             Urutan dari atas ke bawah: Telecom 82%(y=46) → Financial 78%(y=59) → Avg 64%(y=92) → Mfg 58%(y=112) → Healthcare 49%(y=152)
+             Spread label min 16px: 38 / 54 / 96 / 116 / 156
+        -->
+        <!-- Telecom 82% — label_y=38, marker cy=46 (label di atas marker) -->
+        <line x1="647" y1="46"  x2="663" y2="46"  stroke="#e11d48" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="668" y="50"  text-anchor="start" font-size="11" font-weight="700" fill="#e11d48">82%</text>
+
+        <!-- Financial 78% — label_y=67, marker cy=59 (gap 17px dari Telecom label) -->
+        <line x1="647" y1="59"  x2="663" y2="59"  stroke="#3b82d4" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="668" y="67"  text-anchor="start" font-size="11" font-weight="700" fill="#3b82d4">78%</text>
+
+        <!-- Avg 64% — marker cy=92 → label_y=96 (gap 29px dari Financial, cukup) -->
+        <line x1="647" y1="92"  x2="663" y2="92"  stroke="#f59e0b" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="668" y="96"  text-anchor="start" font-size="11" font-weight="700" fill="#d97706">64%</text>
+
+        <!-- Mfg 58% — marker cy=112 → label_y=116 (gap 20px dari Avg) -->
+        <line x1="647" y1="112" x2="663" y2="112" stroke="#7c5cd8" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="668" y="116" text-anchor="start" font-size="11" font-weight="700" fill="#7c5cd8">58%</text>
+
+        <!-- Healthcare 49% — marker cy=152 → label_y=156 (gap 40px dari Mfg, clear) -->
+        <line x1="647" y1="152" x2="663" y2="152" stroke="#059669" stroke-width="1" stroke-dasharray="3 2" opacity=".5"/>
+        <text x="668" y="156" text-anchor="start" font-size="11" font-weight="700" fill="#059669">49%</text>
 
         <!-- ── Pill tahun X-axis ── -->
-        <rect x="104" y="260" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
-        <text x="140" y="275" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2024</text>
-        <rect x="584" y="260" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
-        <text x="620" y="275" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2025</text>
+        <rect x="124" y="262" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
+        <text x="160" y="277" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2024</text>
+        <rect x="604" y="262" width="72" height="22" rx="11" fill="#f7f8fa" stroke="#e5e7eb" stroke-width="1"/>
+        <text x="640" y="277" text-anchor="middle" font-size="12" font-weight="700" fill="#1f2328">2025</text>
       </svg>
     </div>
 
@@ -589,7 +642,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <div class="score-method-title">Mekanisme Scoring AI Adoption (0–100)</div>
       <p style="color:#57606a;font-size:12px;line-height:1.6">
         Skor dihitung secara komposit dari <strong>4 dimensi berbobot</strong>, berdasarkan sintesis data publik:
-        laporan tahunan perusahaan (2023–2024), publikasi IDC Indonesia, McKinsey Global AI Survey 2024,
+        laporan tahunan perusahaan (2024–2025), publikasi IDC Indonesia, McKinsey Global AI Survey 2024,
         OJK Digital Banking Report, dan berita industri terverifikasi.
       </p>
       <div class="score-dims">
@@ -973,7 +1026,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
         <div class="pill" style="border-left:3px solid #dc2626"><div class="pill-text">Integrasi dengan Legacy System</div><div class="pill-pct" style="--pc:#dc2626">84%</div></div>
         <div class="pill" style="border-left:3px solid #dc2626"><div class="pill-text">Keterbatasan Talent &amp; SDM AI</div><div class="pill-pct" style="--pc:#dc2626">81%</div></div>
         <div class="pill" style="border-left:3px solid #dc2626"><div class="pill-text">Kualitas &amp; Ketersediaan Data</div><div class="pill-pct" style="--pc:#dc2626">77%</div></div>
-        <div class="pill" style="border-left:3px solid #ea580c"><div class="pill-text">Keamanan Data &amp; Privasi (Regulasi OJK)</div><div class="pill-pct" style="--pc:#c2410c">74%</div></div>
+        <div class="pill" style="border-left:3px solid #ea580c"><div class="pill-text">Keamanan Data &amp; Privasi (Regulasi OJK/Kominfo/BSSN)</div><div class="pill-pct" style="--pc:#c2410c">74%</div></div>
         <div class="pill" style="border-left:3px solid #ea580c"><div class="pill-text">Biaya Infrastruktur &amp; Cloud AI</div><div class="pill-pct" style="--pc:#c2410c">70%</div></div>
         <div class="pill" style="border-left:3px solid #d97706"><div class="pill-text">Resistensi Perubahan Internal</div><div class="pill-pct" style="--pc:#92400e">63%</div></div>
         <div class="pill" style="border-left:3px solid #d97706"><div class="pill-text">Regulasi AI yang Belum Jelas</div><div class="pill-pct" style="--pc:#854d0e">55%</div></div>
@@ -1008,7 +1061,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 </div>
 
 <div class="footer">
-  <div style="margin-bottom:4px">Sumber data: IDC Indonesia AI Report 2024 · Google–Temasek–Bain e-Conomy SEA 2024 · McKinsey Global AI Survey 2024 · OJK Digital Banking Report 2024 · Laporan Tahunan Bank Mandiri, BCA, BRI, BNI, CIMB Niaga, Permata Bank, Bank Danamon, Maybank Indonesia, UOB Indonesia, BTN, Bank Ina Perdana, Kalbe Farma, Siloam, Kimia Farma, PLN, Astra International, Pertamina, Telkom Indonesia, Telkomsel 2023–2024 · Gartner Indonesia IT Spending Forecast 2025 · BSSN &amp; Kominfo AI Roadmap Indonesia · IDX Annual Reports 2024</div>
+  <div style="margin-bottom:4px">Sumber data: IDC Indonesia AI Report 2024 · Google–Temasek–Bain e-Conomy SEA 2024 · McKinsey Global AI Survey 2024 · OJK Digital Banking Report 2024 · Laporan Tahunan Bank Mandiri, BCA, BRI, BNI, CIMB Niaga, Permata Bank, Bank Danamon, Maybank Indonesia, UOB Indonesia, BTN, Bank Ina Perdana, Kalbe Farma, Siloam, Kimia Farma, PLN, Astra International, Pertamina, Telkom Indonesia, Telkomsel 2024–2025 · Gartner Indonesia IT Spending Forecast 2025 · BSSN &amp; Kominfo AI Roadmap Indonesia · IBM Indonesia Strategic Partnership Report 2025 · IDX Annual Reports 2024–2025</div>
   Made with IBM Bob
 </div>
 

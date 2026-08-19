@@ -170,11 +170,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
       <div class="kpi-delta up" id="kpi-avg-delta">▲ +17 pp vs 2023</div>
       <div class="kpi-source"><strong>Sumber:</strong> IDC Indonesia AI Adoption Report 2024; Google–Temasek–Bain e-Conomy SEA 2024; Laporan Tahunan 11 bank (2023–2024) — rata-rata agregat adopsi aktif (pilot + production) lintas sektor di Indonesia.</div>
     </div>
-    <div class="kpi-card" style="--accent:#e11d48" data-kpi="leader">
+    <div class="kpi-card" id="kpi-leader-card" style="--accent:#e11d48" data-kpi="leader">
       <div class="kpi-label">Leading Industry</div>
       <div class="kpi-value" id="kpi-leader-val">Telecom</div>
       <div class="kpi-sub" id="kpi-leader-sub">Telecommunication · 82% adoption rate</div>
-      <div class="kpi-delta up">▲ Tertinggi di Indonesia 2025</div>
+      <div class="kpi-delta up" id="kpi-leader-delta">▲ Tertinggi di Indonesia 2025</div>
       <div class="kpi-source"><strong>Sumber:</strong> Laporan Tahunan Telkomsel & Telkom 2025 — Telkomsel ChatGPT Go bundling, Ted GenAI, Hyper AI Autonomous Network; Telkom IBM Partnership & 5G 4.913 BTS. Skor komposit tertinggi lintas industri.</div>
     </div>
     <div class="kpi-card" style="--accent:#059669" data-kpi="invest">
@@ -1037,7 +1037,13 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
   
   <div class="card chart-full" style="margin-top:20px;background:#f7f8fa">
-    <div class="card-title" style="margin-bottom:10px">Key Insights · Ringkasan Analisis</div>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+      <div class="card-title" style="margin-bottom:0">Key Insights · Ringkasan Analisis</div>
+      <span style="display:inline-flex;align-items:center;gap:5px;background:#1a2744;color:#a8b8d8;font-size:11px;font-weight:600;padding:4px 10px;border-radius:20px;letter-spacing:.3px">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><circle cx="6" cy="6" r="5" stroke="#60a5fa" stroke-width="1.5"/><line x1="6" y1="4" x2="6" y2="7" stroke="#60a5fa" stroke-width="1.5" stroke-linecap="round"/><circle cx="6" cy="8.5" r=".7" fill="#60a5fa"/></svg>
+        Berdasarkan data kumulatif <strong style="color:#60a5fa">2024–2025</strong> · Tidak berubah saat filter tahun aktif
+      </span>
+    </div>
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px">
       <div style="background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:12px 14px">
         <div style="font-size:11px;font-weight:700;color:#e11d48;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🏆 Telecommunication · #1</div>
@@ -1079,7 +1085,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   var DATA = {
     "All Years (2024\u20132025)": {
       kpi: { avg: "64%", avgSub: "Semua industri \xb7 2024\u20132025", avgDelta: "\u25b2 +17 pp vs 2023",
-             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate",
+             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate", leaderDelta: "\u25b2 Tertinggi di Indonesia 2024\u20132025",
              invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
       bars: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" },
@@ -1087,7 +1093,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     },
     "2024": {
       kpi: { avg: "56%", avgSub: "Semua industri \xb7 2024", avgDelta: "\u25b2 +9 pp vs 2023",
-             leader: "FinServ", leaderSub: "Financial Services \xb7 68% adoption rate",
+             leader: "Telecom", leaderSub: "Telecommunication \xb7 70% adoption rate", leaderDelta: "\u25b2 Tertinggi di Indonesia 2024",
              invest: "$1.5B", investDelta: "\u25b2 +24% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
       bars: { financial: "68%", manufacturing: "46%", healthcare: "37%", telecom: "70%", avg: "56%" },
@@ -1095,7 +1101,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     },
     "2025": {
       kpi: { avg: "64%", avgSub: "Semua industri \xb7 2025", avgDelta: "\u25b2 +8 pp vs 2024",
-             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate",
+             leader: "Telecom", leaderSub: "Telecommunication \xb7 82% adoption rate", leaderDelta: "\u25b2 Tertinggi di Indonesia 2025",
              invest: "$2.1B", investDelta: "\u25b2 +38% YoY",
              usecase: "Fraud Detection", usecaseSub: "Fraud Detection AI \xb7 82% penetrasi" },
       bars: { financial: "78%", manufacturing: "58%", healthcare: "49%", telecom: "82%", avg: "64%" },
@@ -1169,6 +1175,18 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     document.getElementById("kpi-invest-delta").textContent = d.kpi.investDelta;
     document.getElementById("kpi-usecase-val").textContent  = d.kpi.usecase;
     document.getElementById("kpi-usecase-sub").textContent  = d.kpi.usecaseSub;
+
+    // Update accent colour + delta text of Leading Industry card to match the winning industry
+    var leaderColorMap = { "Telecom": "#e11d48", "FinServ": "#3b82d4", "Healthcare": "#059669", "Mfg": "#7c5cd8" };
+    var leaderCard  = document.getElementById("kpi-leader-card");
+    var leaderDelta = document.getElementById("kpi-leader-delta");
+    if (leaderCard) {
+      var lc = leaderColorMap[d.kpi.leader] || "#e11d48";
+      leaderCard.style.setProperty("--accent", lc);
+    }
+    if (leaderDelta && d.kpi.leaderDelta) {
+      leaderDelta.textContent = d.kpi.leaderDelta;
+    }
 
     // 2. Industry bar chart — dim/undim rows
     var barRows = document.querySelectorAll("#industry-adoption-bars .bar-row");

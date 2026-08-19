@@ -770,7 +770,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <!-- Industry tab switcher -->
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;margin-top:-4px" id="ibm-stack-tabs">
     <button onclick="showStack('financial')"   id="tab-financial"   style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #3b82d4;background:#3b82d4;color:#fff;cursor:pointer;transition:all .2s">🏦 Financial Services</button>
-    <button onclick="showStack('manufacturing')" id="tab-manufacturing" style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏭 Mfg &amp; Energy <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+    <button onclick="showStack('manufacturing')" id="tab-manufacturing" style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏭 Mfg &amp; Energy</button>
     <button onclick="showStack('telecom')"     id="tab-telecom"     style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">📡 Telecommunication <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
     <button onclick="showStack('healthcare')"  id="tab-healthcare"  style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏥 Healthcare <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
   </div>
@@ -988,11 +988,177 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     </div>
   </div>
 
-  <!-- ── MANUFACTURING & ENERGY STACK (placeholder) ── -->
+  <!-- ── MANUFACTURING & ENERGY STACK ── -->
   <div id="stack-manufacturing" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
-    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Manufacturing &amp; Energy</div>
-    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
-    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Mfg &amp; Energy</div>
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack per AI Use Case — Manufacturing &amp; Energy</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Berdasarkan IBM Data &amp; AI + Automation stack for Manufacturing &amp; Energy · 3 use case utama · Berlaku untuk Pertamina, PLN &amp; Astra · Sumber: IBM Manufacturing &amp; Energy Solution Stack Document</div>
+
+    <!-- Sub-industry selector -->
+    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+      <div style="font-size:11px;font-weight:700;color:#57606a;display:flex;align-items:center;margin-right:4px">Perusahaan referensi:</div>
+      <span style="background:#7c5cd8;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">🛢️ Pertamina &amp; PLN (Oil &amp; Gas)</span>
+      <span style="background:#a78bfa;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">🚗 Astra (Automotive)</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+
+      <!-- 1. Predictive Maintenance -->
+      <div style="background:#f5f3ff;border:1px solid #ddd6fe;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#7c5cd8;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">68% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#5b21b6">Predictive Maintenance</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#7c5cd8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">IBM Db2 (sensor &amp; log storage)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">watsonx.data (lakehouse IoT)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">watsonx.ai (time-to-failure model)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">watsonx Orchestrate (pipeline)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">watsonx BI / Cognos (dashboard)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">IBM Bob (adaptor generator)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Maximo AMS (asset data &amp; AI)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Instana (full-stack observability)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Sovereign Core (edge AI inference)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Terraform + Vault (infra &amp; secrets)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">API Connect (publish prediction API)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Concert (auto-remediation)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#5b21b6">Flow:</strong> Sensor/peralatan → Db2 (raw data) → watsonx.data (lakehouse) → watsonx.ai melatih model <em>time-to-failure &amp; anomaly detection</em> → Orchestrate trigger inferensi periodik → watsonx BI/Cognos dashboard KPI kesehatan aset → API Connect publish API "next-maintenance-window" ke ERP/CMMS field-service → Guardium enkripsi data sensor &amp; audit trail → Maximo APM + Instana monitoring real-time → Concert auto-remediation saat anomali terdeteksi.
+        </div>
+      </div>
+
+      <!-- 2. Supply-Chain AI -->
+      <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#059669;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">61% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#065f46">Supply-Chain AI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">IBM Db2 (transaksi &amp; inventaris)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.data (internal + eksternal)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.ai (demand forecast + AutoAI)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx Orchestrate (pipeline loop)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx BI / Cognos (stock KPI ESG)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">IBM Bob (micro-service generator)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Envizi (ESG &amp; Supply-Chain Intelligence)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Maximo Inventory Optimization</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">webMethods Hybrid Integration (ERP/WMS)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">API Connect + App Connect Enterprise</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Vault + Verify Governance</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Terraform + Concert (policy &amp; scaling)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#065f46">Flow:</strong> ERP/WMS + data eksternal (weather, market) → webMethods Hybrid Integration → Db2 → watsonx.data → watsonx.ai membangun model <em>demand-forecast, inventory-optimisation &amp; risk-scoring pemasok</em> (AutoAI + foundation models) → Orchestrate retraining mingguan → Bob-generated micro-service → API Connect publish rekomendasi order ke sistem perencanaan → Envizi konsolidasi KPI ESG (Scope 1-3) → Maximo Inventory Optimization seimbangkan stok spare-part → Guardium audit akses data pemasok (GDPR/PCI).
+        </div>
+      </div>
+
+      <!-- 3. Smart Grid / IoT AI -->
+      <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:16px 18px;grid-column:1/-1">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#ea580c;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">55% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#9a3412">Smart Grid / IoT AI</div>
+          <span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px;margin-left:4px">⚡ PLN Focus</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#ea580c;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">IBM Db2 (meter &amp; telemetri jaringan)</span>
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">watsonx.data (time-series + weather)</span>
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">watsonx.ai (load-forecast &amp; anomaly)</span>
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">watsonx Orchestrate (real-time pipeline)</span>
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">watsonx BI (grid status dashboard)</span>
+              <span style="background:#ffedd5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9a3412">watsonx Assistant for Z (chat-ops grid)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Envizi Utility Analytics (KPI beban)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Maximo (health transformer &amp; pompa)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Sovereign Core (edge AI di sub-station)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Instana (IoT network observability)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">API Connect (grid API ke partner energi)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">App Connect Enterprise (IoT event orchestration)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🔐 Security &amp; Infra</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Guardium Cryptography Mgr (kunci IoT)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Guardium Data Protection (NERC/GDPR)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Vault (secret-key perangkat IoT)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Verify (zero-trust operator access)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Terraform (deploy edge clusters OpenShift)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Concert (konsolidasi sinyal &amp; auto-remediation)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#9a3412">Flow:</strong> Sensor/SCADA/meter → Db2 → watsonx.data (time-series lake + data cuaca &amp; market price) → watsonx.ai melatih model <em>load-forecasting, anomaly detection &amp; optimal dispatch</em> (foundation models + AutoAI) → Orchestrate inferensi real-time → API Connect publish ke sistem kontrol grid (demand-response, load-shedding) → App Connect Enterprise orchestrate event IoT + data Envizi ke workflow otomatis → Sovereign Core jalankan inference di edge sub-station → watsonx Assistant for Z chat-ops bagi operator mainframe → Guardium Cryptography Manager kelola kunci enkripsi IoT → Concert konsolidasi &amp; auto-remediasi anomali → IBM Bob percepat edge-service inference di gateway IoT.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End-to-end Architecture Summary -->
+    <div style="margin-top:20px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px">
+      <div style="font-size:12px;font-weight:700;color:#1f2328;margin-bottom:10px">🔄 Arsitektur End-to-End Manufacturing &amp; Energy (dari dokumen referensi)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">1 · INGEST &amp; STORE</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Sensor/SCADA/ERP → Db2 (relational) → watsonx.data (lakehouse time-series &amp; unstructured)</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:4px">2 · INTEGRASI &amp; API</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">webMethods Hybrid Integration + API Connect + App Connect Enterprise → "data-mesh" menghubungkan sensor, ERP, ESG, field-service</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">3 · AI MODELING</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx.ai melatih model prediksi kegagalan, demand-forecast &amp; load-forecast; Maximo APM untuk asset intelligence</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">4 · ORKESTRASI</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx Orchestrate pipeline &amp; scheduling — trigger prediksi, retraining mingguan, kirim alert ke CMMS</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:4px">5 · ESG &amp; ANALYTICS</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Envizi konsolidasi Scope 1-3 &amp; supply-chain intelligence → watsonx BI / Cognos laporan KPI real-time</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#ea580c;margin-bottom:4px">6 · EDGE AI</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Sovereign Core jalankan inference di pabrik/sub-station → Instana monitoring IoT network end-to-end</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#dc2626;margin-bottom:4px">7 · KEAMANAN DATA</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Guardium Data Protection + Cryptography Manager — enkripsi data IoT, audit-ready compliance NERC/PCI/GDPR</div>
+        </div>
+        <div style="background:#1a2744;border-radius:7px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:700;color:#60a5fa;margin-bottom:4px">⚡ INFRA &amp; IDENTITY</div>
+          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Terraform (IaC) + Vault (secrets) + Verify (zero-trust) + Concert (observability &amp; auto-remediation) + IBM Bob (45-90% dev acceleration)</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ── TELECOM STACK (placeholder) ── -->

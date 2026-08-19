@@ -1779,6 +1779,17 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     if (company && COMPANY_INDUSTRY[company] && industry && COMPANY_INDUSTRY[company] !== industry) {
       selCompany.value = "All Companies";
     }
+
+    // 7. Sync IBM Solution Stack tab — otomatis follow filter Industry
+    var INDUSTRY_TO_STACK = {
+      financial:     "financial",
+      manufacturing: "manufacturing",
+      telecom:       "telecom",
+      healthcare:    "healthcare"
+    };
+    if (industry && INDUSTRY_TO_STACK[industry] && typeof showStack === "function") {
+      showStack(INDUSTRY_TO_STACK[industry]);
+    }
   }
 
   // ── Event listeners ────────────────────────────────────────────

@@ -764,44 +764,54 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <!-- ═══════════════════════════════════════════════════════════
        IBM SOLUTION STACK — Financial Services
        ═══════════════════════════════════════════════════════════ -->
-  <div class="section-label" style="margin-top:28px">IBM Solution Stack · Financial Services</div>
-  <div class="card chart-full" style="margin-bottom:20px;padding:24px 26px">
-    <div class="card-title" style="font-size:14px;margin-bottom:4px">Rekomendasi IBM Solution Stack per AI Use Case — Industry Financial Services</div>
-    <div class="card-subtitle" style="margin-bottom:20px">Berdasarkan IBM Data &amp; AI + Automation stack for Banking · Sumber: IBM Financial Solution Stack Document</div>
+  <!-- ══ IBM SOLUTION STACK SECTION — filterable by industry ══ -->
+  <div class="section-label" style="margin-top:28px" id="ibm-stack-label">IBM Solution Stack · <span id="ibm-stack-industry-name">Financial Services</span></div>
 
-    <!-- Stack cards grid -->
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px" id="ibm-stack-grid">
+  <!-- Industry tab switcher -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;margin-top:-4px" id="ibm-stack-tabs">
+    <button onclick="showStack('financial')"   id="tab-financial"   style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #3b82d4;background:#3b82d4;color:#fff;cursor:pointer;transition:all .2s">🏦 Financial Services</button>
+    <button onclick="showStack('manufacturing')" id="tab-manufacturing" style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏭 Mfg &amp; Energy <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+    <button onclick="showStack('telecom')"     id="tab-telecom"     style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">📡 Telecommunication <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+    <button onclick="showStack('healthcare')"  id="tab-healthcare"  style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏥 Healthcare <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+  </div>
 
-      <!-- 1. Fraud Detection -->
+  <!-- ── FINANCIAL SERVICES STACK ── -->
+  <div id="stack-financial" class="card chart-full" style="margin-bottom:20px;padding:24px 26px">
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack per AI Use Case — Financial Services (Banking)</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Berdasarkan IBM Data &amp; AI + Automation stack for Banking · 5 use case utama · Sumber: IBM FS Solution Stack Document</div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+
+      <!-- 1. Fraud Detection & Credit-Scoring AI -->
       <div style="background:#eff6ff;border:1px solid #bfdbfe;border-radius:10px;padding:16px 18px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
           <span style="background:#3b82d4;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">82% ADOPTION</span>
-          <div style="font-size:13px;font-weight:700;color:#1d4ed8">Fraud Detection &amp; Credit Scoring AI</div>
+          <div style="font-size:13px;font-weight:700;color:#1d4ed8">Fraud Detection &amp; Credit-Scoring AI</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
           <div>
             <div style="font-size:10px;font-weight:700;color:#3b82d4;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">IBM Db2</span>
               <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">watsonx.data</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">watsonx Orchestrate</span>
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">watsonx.ai (AutoAI + Granite)</span>
               <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">watsonx.governance</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">IBM Granite Models</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Db2</span>
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Cognos Analytics</span>
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Terraform</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Vault</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">API Connect</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Instana</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium Data Protection</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium Cryptography Mgr</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium Key Lifecycle Mgr</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">webMethods API Mgmt</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Sovereign Core</span>
             </div>
           </div>
         </div>
         <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#1d4ed8">Flow:</strong> Ingest transaction streams → watsonx.data lakehouse → Orchestrate melatih Granite fraud model → Scoring real-time via Db2 API → watsonx.governance monitoring drift → Guardium enkripsi PII.
+          <strong style="color:#1d4ed8">Flow:</strong> Data transaksi &amp; nasabah masuk ke watsonx.data lakehouse &amp; Db2 → watsonx.ai melatih model anomaly detection &amp; gradient-boosted credit-scoring (AutoAI) → Scoring real-time via webMethods API → watsonx.governance monitoring bias &amp; drift → Guardium enkripsi PII &amp; compliance PCI/GDPR → Cognos Analytics laporan fraud KPI real-time.
         </div>
       </div>
 
@@ -815,24 +825,24 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <div>
             <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.data Intelligence</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.data + Knowledge Catalog</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.ai (entity-resolution)</span>
               <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx Orchestrate</span>
               <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.governance</span>
-              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">Watson Knowledge Catalog</span>
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">webMethods API Mgmt</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">webMethods Hybrid Intg</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Verify Governance</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Concert</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">webMethods Hybrid Integration</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Verify Governance (audit trail)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium Data Protection</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Concert (AML/GDPR compliance)</span>
             </div>
           </div>
         </div>
         <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#065f46">Flow:</strong> Dokumen customer → watsonx.data auto-tag entity (NLP) → Orchestrate: OCR → entity extraction → watch-list match → risk score → case creation → Governance audit trail → Concert compliance AML/GDPR.
+          <strong style="color:#065f46">Flow:</strong> Dokumen nasabah diingest → watsonx.data auto-tag &amp; govern entity → watsonx.ai NLP: OCR → entity-resolution → transaction monitoring → watch-list match → risk score → Orchestrate otomatisasi alur KYC onboarding → Verify Governance audit trail → Concert compliance AML/GDPR → Guardium enkripsi data sensitif.
         </div>
       </div>
 
@@ -846,161 +856,186 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
           <div>
             <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">watsonx Orchestrate</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">IBM Granite Models (LLM)</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Watson Assistant</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Watson Discovery</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">watsonx Assistant for Z</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">watsonx Orchestrate (agent layer)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">watsonx.ai (Granite LLM)</span>
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">App Connect</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">API Connect</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Verify Privileged Identity</span>
-              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Instana</span>
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">webMethods API Management</span>
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Verify (risk-based auth + SSO)</span>
+              <span style="background:#dbeafe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#1e40af">Instana (monitoring chatbot)</span>
             </div>
           </div>
         </div>
         <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#5b21b6">Flow:</strong> User query → API Connect → watsonx Orchestrate (Granite LLM NLU) → App Connect routing ke core banking/CRM → response dikembalikan. Traffic dilindungi Verify, diobservasi Instana.
+          <strong style="color:#5b21b6">Flow:</strong> Pertanyaan nasabah → watsonx Assistant for Z (on-prem, terintegrasi IBM Z) → Orchestrate menghubungkan ke model fraud detection &amp; credit scoring &amp; layanan backend → webMethods API Management secure gateway ke data nasabah/riwayat transaksi → Verify mengamankan sesi → Instana monitoring latency real-time.
         </div>
       </div>
 
-      <!-- 4. Predictive Analytics -->
+      <!-- 4. Credit-Scoring AI (dedicated card) -->
       <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px 18px">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
           <span style="background:#d97706;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">69% ADOPTION</span>
-          <div style="font-size:13px;font-weight:700;color:#92400e">Predictive Analytics</div>
+          <div style="font-size:13px;font-weight:700;color:#92400e">Credit-Scoring AI &amp; Predictive Analytics</div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
           <div>
             <div style="font-size:10px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.data</span>
-              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx Orchestrate</span>
-              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Cognos Analytics</span>
-              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Watson Studio</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">IBM Db2 (mission-critical storage)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.data (lakehouse)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.ai (gradient-boosted trees)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Cognos Analytics (BI reporting)</span>
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Terraform</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Turbonomic</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Instana</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Concert</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Terraform (infra provisioning)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Vault (secrets &amp; key management)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Turbonomic (compute scaling)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Concert + Instana (observability)</span>
             </div>
           </div>
         </div>
         <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#92400e">Flow:</strong> Data historis + streaming → watsonx.data → Orchestrate jadwalkan training &amp; batch inference → Cognos Analytics surfacing prediksi ke business users → Turbonomic optimasi cluster cost.
+          <strong style="color:#92400e">Flow:</strong> Data profil nasabah &amp; historis pembayaran → Db2 relational store + watsonx.data lakehouse → watsonx.ai melatih gradient-boosted trees &amp; neural nets untuk credit scoring → Terraform provisioning sandbox training → Vault inject credentials DB2 &amp; API keys → Turbonomic autoscale cluster ML → Cognos Analytics laporan skor kredit &amp; KPI risiko ke manajemen.
         </div>
       </div>
 
-      <!-- 5. Generative AI / LLM -->
-      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:16px 18px">
+      <!-- 5. GenAI Copilot untuk Staf Internal -->
+      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:16px 18px;grid-column:1/-1">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
           <span style="background:#dc2626;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">64% ADOPTION</span>
-          <div style="font-size:13px;font-weight:700;color:#991b1b">Generative AI / LLM</div>
+          <div style="font-size:13px;font-weight:700;color:#991b1b">GenAI Copilot untuk Staf Internal</div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
           <div>
             <div style="font-size:10px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">IBM Granite Models</span>
-              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">watsonx Orchestrate</span>
-              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">watsonx.governance</span>
-              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Guardium</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">watsonx.ai (Foundation Models / Granite)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">watsonx Code Assistant for Z</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">watsonx Orchestrate (multi-copilot)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">IBM Bob (AI dev assistant)</span>
             </div>
           </div>
           <div>
             <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
             <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Sovereign Core</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Vault</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Verify Governance</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Instana</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Sovereign Core (governed AI runtime)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Vault (secret injection)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Verify Governance (role-based access)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Guardium (output audit — PII/regulasi)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">💡 Copilot Capabilities</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">Analis fraud: natural-language query Db2</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">Generate laporan KYC otomatis</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">Rekomendasi kredit via NL prompts</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">IBM Bob: COBOL-to-Java + pipeline AI</span>
             </div>
           </div>
         </div>
         <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#991b1b">Flow:</strong> Granite LLM di-deploy di Sovereign Core → Vault injeksi secrets → Verify enforce akses role-based → Orchestrate fine-tune Granite pada data perbankan proprietary → Guardium audit output yang mengandung data regulasi.
-        </div>
-      </div>
-
-      <!-- 6. NLP / Document Processing -->
-      <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:16px 18px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
-          <span style="background:#0d9488;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">52% ADOPTION</span>
-          <div style="font-size:13px;font-weight:700;color:#134e4a">NLP / Document Processing</div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
-          <div>
-            <div style="font-size:10px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
-            <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">watsonx.data Intelligence</span>
-              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">watsonx Orchestrate</span>
-              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">Watson NLU</span>
-              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">Watson Discovery</span>
-            </div>
-          </div>
-          <div>
-            <div style="font-size:10px;font-weight:700;color:#7c3aed;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
-            <div style="display:flex;flex-direction:column;gap:4px">
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">App Connect</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">webMethods Hybrid Intg</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Vault</span>
-              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#6d28d9">Concert (GDPR)</span>
-            </div>
-          </div>
-        </div>
-        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
-          <strong style="color:#134e4a">Flow:</strong> PDF/email/gambar diingest → data intelligence auto-klasifikasi &amp; ekstrak teks → Orchestrate chain: OCR → LLM entity extraction → storage di watsonx.data untuk downstream analytics → Concert log GDPR-compliant PII handling.
+          <strong style="color:#991b1b">Flow:</strong> Granite Foundation Models di-deploy di Sovereign Core (Basel III / GDPR compliant) → Vault inject secrets → Verify Governance enforce role-based access → watsonx.ai fine-tune Granite pada data perbankan proprietary → Orchestrate koordinasi multi-copilot (code, data, model) dalam 1 workflow audit-ready → watsonx Code Assistant for Z modernisasi COBOL → IBM Bob percepat scripting integrasi &amp; pipeline data (45–90% time-saving) → Guardium audit semua output yang mengandung PII/regulasi.
         </div>
       </div>
 
     </div>
 
-    <!-- Core Platform Glue -->
-    <div style="margin-top:20px;background:#1a2744;border-radius:10px;padding:16px 20px;color:#fff">
-      <div style="font-size:12px;font-weight:700;color:#a8b8d8;text-transform:uppercase;letter-spacing:.8px;margin-bottom:12px">⚡ Core Platform Glue — Komponen Cross-Cutting</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:3px">watsonx.data + Intelligence</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Unified governed data fabric — eliminates tool sprawl, AI-ready real-time data</div>
+    <!-- End-to-end Architecture Summary -->
+    <div style="margin-top:20px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px">
+      <div style="font-size:12px;font-weight:700;color:#1f2328;margin-bottom:10px">🔄 Arsitektur End-to-End Banking (dari FS.pdf)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#3b82d4;margin-bottom:4px">1 · INGEST &amp; STORE</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Data transaksi &amp; profil nasabah → watsonx.data (lakehouse) + Db2 (relational)</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#a78bfa;margin-bottom:3px">watsonx Orchestrate</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Control plane: stitches data ingestion, model training, inference &amp; business workflows</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:4px">2 · INTEGRASI &amp; API</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">webMethods Hybrid Integration (core banking ↔ digital ↔ fintech) + API Management (security &amp; access control)</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#34d399;margin-bottom:3px">Guardium Suite</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">End-to-end data security: discovery, classification, encryption, compliance templates</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#dc2626;margin-bottom:4px">3 · KEAMANAN</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Guardium Data Protection + Cryptography Manager + Key Lifecycle Manager — data at-rest &amp; in-motion, audit-ready compliance</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:3px">Concert + Instana</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Unified observability-security-compliance: aggregate signals, score risk, automate remediation</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">4 · MODELING</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx.ai melatih model fraud, KYC/AML, credit-scoring; watsonx.governance mengawasi bias &amp; drift</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#f87171;margin-bottom:3px">Sovereign Core</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Regulated, region-locked AI/ML runtime — built-in compliance &amp; audit (EU AI Act, ISO 27001)</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#d97706;margin-bottom:4px">5 · ORKESTRASI</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx Orchestrate menggabungkan model dengan workflow bisnis — investigasi fraud, KYC onboarding otomatis</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#60a5fa;margin-bottom:3px">API Connect / webMethods</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Secure AI service exposure &amp; legacy banking system integration (mainframe, core banking)</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#5b21b6;margin-bottom:4px">6 · PENGALAMAN NASABAH</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx Assistant for Z + webMethods API — chatbot menjawab pertanyaan &amp; men-trigger proses backend</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#a78bfa;margin-bottom:3px">Vault + Verify</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Zero-trust identity fabric: secrets management, risk-based auth, least-privilege access</div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#991b1b;margin-bottom:4px">7 · PRODUKTIVITAS STAF</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">IBM Bob &amp; watsonx Code Assistant for Z — GenAI Copilot; Cognos Analytics laporan AI-infused untuk risk management</div>
         </div>
-        <div style="background:rgba(255,255,255,.08);border-radius:7px;padding:10px 12px">
-          <div style="font-size:11px;font-weight:700;color:#fbbf24;margin-bottom:3px">IBM Bob</div>
-          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">AI-assisted development: accelerates building, testing &amp; CI/CD custom adapters &amp; Orchestrate pipelines</div>
+        <div style="background:#1a2744;border-radius:7px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:700;color:#60a5fa;margin-bottom:4px">⚡ IDENTITAS &amp; INFRA</div>
+          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Terraform (IaC) + Vault (secrets) + Verify suite (SSO, MFA, zero-trust) + Concert &amp; Instana (observability)</div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- ── MANUFACTURING & ENERGY STACK (placeholder) ── -->
+  <div id="stack-manufacturing" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Manufacturing &amp; Energy</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
+    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Mfg &amp; Energy</div>
+  </div>
+
+  <!-- ── TELECOM STACK (placeholder) ── -->
+  <div id="stack-telecom" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Telecommunication</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
+    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Telecommunication</div>
+  </div>
+
+  <!-- ── HEALTHCARE STACK (placeholder) ── -->
+  <div id="stack-healthcare" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Healthcare</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
+    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Healthcare</div>
+  </div>
+
+  <!-- Tab switcher JS -->
+  <script>
+  var STACK_INDUSTRIES = {
+    financial:     { name: "Financial Services",   tabColor: "#3b82d4" },
+    manufacturing: { name: "Mfg & Energy",         tabColor: "#7c5cd8" },
+    telecom:       { name: "Telecommunication",     tabColor: "#e11d48" },
+    healthcare:    { name: "Healthcare",            tabColor: "#059669" }
+  };
+  function showStack(ind) {
+    // hide all stacks
+    ["financial","manufacturing","telecom","healthcare"].forEach(function(k) {
+      var el = document.getElementById("stack-" + k);
+      if (el) el.style.display = "none";
+      var tab = document.getElementById("tab-" + k);
+      if (tab) { tab.style.background = "#fff"; tab.style.color = "#57606a"; tab.style.borderColor = "#e5e7eb"; }
+    });
+    // show selected
+    var target = document.getElementById("stack-" + ind);
+    if (target) target.style.display = "block";
+    var activeTab = document.getElementById("tab-" + ind);
+    var c = (STACK_INDUSTRIES[ind] || {}).tabColor || "#3b82d4";
+    if (activeTab) { activeTab.style.background = c; activeTab.style.color = "#fff"; activeTab.style.borderColor = c; }
+    // update section label
+    var nameEl = document.getElementById("ibm-stack-industry-name");
+    if (nameEl) nameEl.textContent = (STACK_INDUSTRIES[ind] || {}).name || ind;
+  }
+  </script>
 
   
   <div class="section-label">5 · Manfaat &amp; Tantangan Implementasi AI</div>

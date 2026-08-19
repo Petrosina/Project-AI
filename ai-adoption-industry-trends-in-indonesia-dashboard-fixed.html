@@ -1516,7 +1516,14 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     telecom:       { name: "Telecommunication",     tabColor: "#e11d48" },
     healthcare:    { name: "Healthcare",            tabColor: "#059669" }
   };
+
+  // activeStackIndustryFilter: null = all tabs free, else only that tab is clickable
+  var activeStackIndustryFilter = null;
+
   function showStack(ind) {
+    // If a filter is active and user clicked a different tab, block it
+    if (activeStackIndustryFilter && ind !== activeStackIndustryFilter) return;
+
     // hide all stacks
     ["financial","manufacturing","telecom","healthcare"].forEach(function(k) {
       var el = document.getElementById("stack-" + k);
@@ -1533,6 +1540,36 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     // update section label
     var nameEl = document.getElementById("ibm-stack-industry-name");
     if (nameEl) nameEl.textContent = (STACK_INDUSTRIES[ind] || {}).name || ind;
+  }
+
+  function syncStackTabs(industryKey) {
+    // industryKey: null = all free, else = restrict to that key
+    activeStackIndustryFilter = industryKey;
+    var ALL_KEYS = ["financial","manufacturing","telecom","healthcare"];
+    ALL_KEYS.forEach(function(k) {
+      var tab = document.getElementById("tab-" + k);
+      if (!tab) return;
+      if (!industryKey) {
+        // All Industries — all tabs enabled & visible
+        tab.style.opacity = "1";
+        tab.style.cursor  = "pointer";
+        tab.style.pointerEvents = "auto";
+      } else if (k === industryKey) {
+        // This is the filtered industry — active & enabled
+        tab.style.opacity = "1";
+        tab.style.cursor  = "pointer";
+        tab.style.pointerEvents = "auto";
+      } else {
+        // Other industries — visually disabled
+        tab.style.opacity = "0.3";
+        tab.style.cursor  = "not-allowed";
+        tab.style.pointerEvents = "none";
+        // reset inactive tab styling
+        tab.style.background  = "#fff";
+        tab.style.color       = "#57606a";
+        tab.style.borderColor = "#e5e7eb";
+      }
+    });
   }
   </script>
 
@@ -1781,14 +1818,11 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     }
 
     // 7. Sync IBM Solution Stack tab — otomatis follow filter Industry
-    var INDUSTRY_TO_STACK = {
-      financial:     "financial",
-      manufacturing: "manufacturing",
-      telecom:       "telecom",
-      healthcare:    "healthcare"
-    };
-    if (industry && INDUSTRY_TO_STACK[industry] && typeof showStack === "function") {
-      showStack(INDUSTRY_TO_STACK[industry]);
+    if (typeof syncStackTabs === "function") {
+      syncStackTabs(industry); // null when All Industries → frees all tabs
+    }
+    if (industry && typeof showStack === "function") {
+      showStack(industry);
     }
   }
 

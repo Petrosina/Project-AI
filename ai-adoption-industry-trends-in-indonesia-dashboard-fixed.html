@@ -771,7 +771,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;margin-top:-4px" id="ibm-stack-tabs">
     <button onclick="showStack('financial')"   id="tab-financial"   style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #3b82d4;background:#3b82d4;color:#fff;cursor:pointer;transition:all .2s">🏦 Financial Services</button>
     <button onclick="showStack('manufacturing')" id="tab-manufacturing" style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏭 Mfg &amp; Energy</button>
-    <button onclick="showStack('telecom')"     id="tab-telecom"     style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">📡 Telecommunication <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+    <button onclick="showStack('telecom')"     id="tab-telecom"     style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">📡 Telecommunication</button>
     <button onclick="showStack('healthcare')"  id="tab-healthcare"  style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏥 Healthcare <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
   </div>
 
@@ -1161,11 +1161,184 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     </div>
   </div>
 
-  <!-- ── TELECOM STACK (placeholder) ── -->
+  <!-- ── TELECOM STACK ── -->
   <div id="stack-telecom" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
-    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Telecommunication</div>
-    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
-    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Telecommunication</div>
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack per AI Use Case — Telecommunication</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Berdasarkan IBM Data &amp; AI + Automation stack for Telecom Operator · 3 use case utama · Berlaku untuk Telkom Indonesia &amp; Telkomsel · Sumber: IBM Telecommunications Solution Stack Document</div>
+
+    <!-- Sub-industry tag -->
+    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+      <div style="font-size:11px;font-weight:700;color:#57606a;display:flex;align-items:center;margin-right:4px">Perusahaan referensi:</div>
+      <span style="background:#e11d48;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">📡 Telkom Indonesia</span>
+      <span style="background:#fb7185;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">📱 Telkomsel</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+
+      <!-- 1. Network Optimization AI -->
+      <div style="background:#fff1f2;border:1px solid #fecdd3;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#e11d48;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">82% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#9f1239">Network Optimization AI</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#e11d48;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ffe4e6;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9f1239">watsonx Orchestrate (autonomous agents)</span>
+              <span style="background:#ffe4e6;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9f1239">watsonx.ai (AutoAI + Prompt Lab)</span>
+              <span style="background:#ffe4e6;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9f1239">IBM Db2 (time-series network metrics)</span>
+              <span style="background:#ffe4e6;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#9f1239">Guardium Data Protection</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#be123c;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fecdd3;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#881337">Instana (full-stack AI observability)</span>
+              <span style="background:#fecdd3;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#881337">Concert (AI risk scoring &amp; remediation)</span>
+              <span style="background:#fecdd3;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#881337">Terraform (NFV &amp; edge provisioning)</span>
+              <span style="background:#fecdd3;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#881337">Vault (zero-trust service-to-service auth)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#9f1239">Flow:</strong> OSS/BSS &amp; NetOps telemetry → Db2 (high-performance time-series store) → watsonx.ai melatih model <em>traffic-routing, load-balancing &amp; capacity-planning</em> (AutoAI + Prompt Lab) → Orchestrate ingest telemetri real-time &amp; jalankan agen otonom → Orchestrate trigger aksi remediasi (re-provision virtual network function) → Instana monitoring granular (latency, packet loss, CPU/memory) lintas physical, virtual &amp; edge nodes → Concert ties insights ke remediation workflow (auto-scale virtual router, patch firewall) → Terraform provisioning NFV &amp; edge resources multi-cloud → Vault automated credential-management loop → Guardium enkripsi data subscriber &amp; lokasi.
+        </div>
+      </div>
+
+      <!-- 2. AI-enhanced Customer Experience -->
+      <div style="background:#faf5ff;border:1px solid #ddd6fe;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#7c5cd8;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">78% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#5b21b6">AI-enhanced Customer Experience</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#7c5cd8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">watsonx Assistant for Z (agentic AI chatbot)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">IBM Bob (CX micro-service dev)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">Cognos Analytics (churn risk &amp; next-best-action)</span>
+              <span style="background:#ede9fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#5b21b6">Guardium Cryptography Manager</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">webMethods API Management (zero-trust APIs)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">API Connect (hybrid-cloud API governance)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">App Connect Enterprise (OSS/BSS/CRM integrasi)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Verify (password-less &amp; risk-based auth)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#5b21b6">Flow:</strong> Pelanggan berinteraksi via self-service portal / chatbot / IVR → watsonx Assistant for Z (on-prem, Granite 4.1 / Llama 3.3) memberikan NL interactions → IBM Bob mempercepat pembuatan recommendation engine &amp; usage-forecast API → Cognos Analytics surfacing personalized usage insights, churn risk scores &amp; next-best-action untuk call-center agents → webMethods API Management mengekspos semua AI services ke mobile/web apps (zero-trust) → API Connect + App Connect Enterprise menghubungkan OSS/BSS, CRM &amp; billing dengan minimal kode → Verify SSO + risk-based auth untuk consumer &amp; enterprise portals → Guardium Cryptography Manager kelola keys &amp; certificates API (post-quantum ready).
+        </div>
+      </div>
+
+      <!-- 3. Predictive Churn & Revenue Protection -->
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px 18px;grid-column:1/-1">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#d97706;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">71% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#92400e">Predictive Churn &amp; Revenue Protection</div>
+          <span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px;margin-left:4px">📱 Telkomsel Focus</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.ai (churn-prediction model)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">IBM Db2 (billing, CRM &amp; network data)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Cognos Analytics (churn risk dashboard)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Guardium Data Protection (PII/GDPR/PCI)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">webMethods Integration (App Connect / API Connect)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Maximo AMS (deteriorating network assets)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Instana (real-time telemetry ke churn model)</span>
+              <span style="background:#ddd6fe;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#4c1d95">Verify Identity Protection (fraud prevention)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🔐 Governance &amp; Infra</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Envizi (cost-to-serve &amp; high-value customer insight)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Sovereign Core (compliance AI + data sovereignty)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Terraform (IaC network lifecycle provisioning)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Vault (central secret management)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Concert (unified risk scoring &amp; remediation)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#92400e">Flow:</strong> Data subscriber (usage, billing, network quality) → Db2 high-performance data lake (in-database vector search) → watsonx.ai melatih model <em>churn-prediction</em> (Prompt Lab + AutoAI) → Cognos Analytics visualisasi churn risk scores, segment trends &amp; ROI retention campaigns → webMethods Integration stitch CRM, billing &amp; marketing automation → churn alert trigger targeted offer real-time (push discount coupon saat churn risk spike) → Instana supply telemetri (frequent drops, latency spikes) untuk model → Maximo AMS flag deteriorating network assets yang picu service outage → Verify Identity Protection monitoring credential-stuffing &amp; MFA-bypass → Envizi cost-to-serve analytics identifikasi high-margin customers → Sovereign Core jaga model AI &amp; data dalam batas regulasi (GDPR, regulasi telco lokal) → Guardium enkripsi data PII/usage records.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End-to-end Architecture Summary -->
+    <div style="margin-top:20px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px">
+      <div style="font-size:12px;font-weight:700;color:#1f2328;margin-bottom:10px">🔄 Arsitektur End-to-End Telecommunications (dari dokumen referensi)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#e11d48;margin-bottom:4px">1 · DATA INGESTION</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Network &amp; subscriber data → Db2 (structured) + watsonx.data lake via Db2 connectors</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#dc2626;margin-bottom:4px">2 · SECURITY &amp; COMPLIANCE</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Guardium Data Protection (encrypt &amp; classify) + Guardium Cryptography Manager (key management APIs &amp; AI services)</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">3 · MODEL DEVELOPMENT</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx.ai (AutoAI + Prompt Lab) — optimization, CX-assistant &amp; churn-prediction models</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#9f1239;margin-bottom:4px">4 · APPLICATION BUILD</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">IBM Bob — AI-assisted coding, testing &amp; CI/CD micro-services (45-90% time-saving)</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#be123c;margin-bottom:4px">5 · API EXPOSURE</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">webMethods API Management + API Connect — zero-trust, rate-limiting &amp; analytics untuk semua AI services</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#e11d48;margin-bottom:4px">6 · ORCHESTRATION</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx Orchestrate / Concert — wire telemetry → model → remediation loop; trigger CX-assistant &amp; churn-mitigation workflows</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">7 · ANALYTICS &amp; REPORTING</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Cognos Analytics — dashboards &amp; NL insights; query Db2 langsung atau via API layer</div>
+        </div>
+        <div style="background:#1a2744;border-radius:7px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:700;color:#60a5fa;margin-bottom:4px">⚡ INFRA &amp; IDENTITY</div>
+          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Terraform (NFV &amp; edge IaC) + Vault (secrets) + Verify (zero-trust &amp; SSO) + Sovereign Core (data sovereignty GDPR + regulasi telco lokal)</div>
+        </div>
+      </div>
+
+      <!-- Why this stack works for Telco -->
+      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#fff1f2;border-radius:7px;padding:10px 12px;border:1px solid #fecdd3">
+          <div style="font-size:10px;font-weight:700;color:#e11d48;margin-bottom:3px">🌐 Hybrid-Cloud Flexibility</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Semua komponen berjalan on-prem, IBM Cloud, atau hyperscaler — cocok topologi multi-cloud telco modern</div>
+        </div>
+        <div style="background:#faf5ff;border-radius:7px;padding:10px 12px;border:1px solid #ddd6fe">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:3px">🤖 AI-First, Governance by Design</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx platform AI foundation + Guardium data protection &amp; auditability — memenuhi regulasi telco (GDPR, PCI)</div>
+        </div>
+        <div style="background:#fffbeb;border-radius:7px;padding:10px 12px;border:1px solid #fde68a">
+          <div style="font-size:10px;font-weight:700;color:#d97706;margin-bottom:3px">⚡ Speed to Market</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">IBM Bob AI-assisted dev + low-code webMethods — CX services delivered dalam hitungan minggu bukan bulan</div>
+        </div>
+        <div style="background:#f0fdf4;border-radius:7px;padding:10px 12px;border:1px solid #bbf7d0">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:3px">🛡️ Operational Resilience</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Orchestrate autonomous agents + Guardium continuous risk scoring — network &amp; data pipelines self-healing &amp; secure</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- ── HEALTHCARE STACK (placeholder) ── -->

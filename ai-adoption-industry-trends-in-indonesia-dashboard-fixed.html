@@ -772,7 +772,7 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     <button onclick="showStack('financial')"   id="tab-financial"   style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #3b82d4;background:#3b82d4;color:#fff;cursor:pointer;transition:all .2s">🏦 Financial Services</button>
     <button onclick="showStack('manufacturing')" id="tab-manufacturing" style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏭 Mfg &amp; Energy</button>
     <button onclick="showStack('telecom')"     id="tab-telecom"     style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">📡 Telecommunication</button>
-    <button onclick="showStack('healthcare')"  id="tab-healthcare"  style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏥 Healthcare <span style="font-size:10px;font-weight:500;color:#9ca3af">(coming soon)</span></button>
+    <button onclick="showStack('healthcare')"  id="tab-healthcare"  style="font-family:inherit;font-size:12px;font-weight:700;padding:6px 16px;border-radius:20px;border:2px solid #e5e7eb;background:#fff;color:#57606a;cursor:pointer;transition:all .2s">🏥 Healthcare</button>
   </div>
 
   <!-- ── FINANCIAL SERVICES STACK ── -->
@@ -1341,11 +1341,193 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
     </div>
   </div>
 
-  <!-- ── HEALTHCARE STACK (placeholder) ── -->
+  <!-- ── HEALTHCARE STACK ── -->
   <div id="stack-healthcare" class="card chart-full" style="margin-bottom:20px;padding:24px 26px;display:none">
-    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack — Healthcare</div>
-    <div class="card-subtitle" style="margin-bottom:20px">Segera hadir · Dokumen referensi sedang disiapkan</div>
-    <div style="text-align:center;padding:60px 0;color:#9ca3af;font-size:14px">🚧 Coming Soon — IBM Solution Stack untuk industri Healthcare</div>
+    <div class="card-title" style="font-size:14px;margin-bottom:4px">IBM Solution Stack per AI Use Case — Healthcare</div>
+    <div class="card-subtitle" style="margin-bottom:20px">Berdasarkan IBM Data &amp; AI + Automation stack for Healthcare · 3 use case utama · Berlaku untuk Kalbe Farma, Siloam Hospitals &amp; Kimia Farma · Sumber: IBM Healthcare Solution Stack Document</div>
+
+    <!-- Sub-industry tag -->
+    <div style="display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap">
+      <div style="font-size:11px;font-weight:700;color:#57606a;display:flex;align-items:center;margin-right:4px">Perusahaan referensi:</div>
+      <span style="background:#059669;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">💊 Kalbe Farma</span>
+      <span style="background:#34d399;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">🏥 Siloam Hospitals</span>
+      <span style="background:#f59e0b;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px">⚗️ Kimia Farma</span>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+
+      <!-- 1. AI-driven Diagnostics -->
+      <div style="background:#ecfdf5;border:1px solid #a7f3d0;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#059669;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">68% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#065f46">AI-driven Diagnostics</div>
+          <span style="background:#d1fae5;color:#065f46;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">🏥 Siloam Focus</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#059669;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx.ai (AutoAI + image classification)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">watsonx Orchestrate (diagnostic agents)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">IBM Db2 (patient labs, orders, demographics)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">Guardium Data Protection (PHI/HIPAA)</span>
+              <span style="background:#d1fae5;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#065f46">webMethods API Management (EMR/EHR APIs)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">API Connect (diagnostic inference API)</span>
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">App Connect Enterprise (EHR/RIS/lab integrasi)</span>
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">Verify (SSO/MFA dokter &amp; pasien)</span>
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">Concert (HIPAA compliance monitoring)</span>
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">Instana (inference latency &amp; GPU load)</span>
+              <span style="background:#a7f3d0;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#064e3b">Terraform + Vault (GPU cluster &amp; secrets)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#065f46">Flow:</strong> Imaging, lab results &amp; EHR streams masuk via App Connect → Db2 (structured patient data + vector-search imaging features) → watsonx.ai melatih model <em>radiology image classification, genomics interpretation &amp; clinical decision support</em> (AutoAI + Prompt Lab) → Orchestrate agen otonom: ingest scan baru → run inference → tulis hasil ke Db2 → trigger clinician alert via API → webMethods API Management zero-trust access ke EMR/EHR systems &amp; mobile apps → Guardium enkripsi &amp; klasifikasi PHI sepanjang pipeline (HIPAA/GDPR audit trail) → Concert monitor kepatuhan HIPAA semua layanan → Instana pantau latency inference &amp; GPU.
+        </div>
+      </div>
+
+      <!-- 2. Drug Discovery & Research -->
+      <div style="background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:16px 18px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#d97706;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">55% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#92400e">Drug Discovery &amp; Research</div>
+          <span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">💊 Kalbe Focus</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#d97706;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.ai (LLM — protein structure &amp; molecule)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">watsonx.data Intelligence (omics &amp; trial catalog)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">IBM Db2 (assay results &amp; compound library)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">Guardium Cryptography Manager (IP protection)</span>
+              <span style="background:#fef3c7;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#92400e">IBM Bob (ETL &amp; pipeline generator)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#b45309;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fde68a;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#78350f">API Connect (drug-candidate scoring API)</span>
+              <span style="background:#fde68a;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#78350f">webMethods API Management (peneliti CRO portal)</span>
+              <span style="background:#fde68a;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#78350f">Verify Governance (audit akses data genomik)</span>
+              <span style="background:#fde68a;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#78350f">Concert (compliance &amp; audit drug pipeline)</span>
+              <span style="background:#fde68a;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#78350f">Terraform + Vault (GPU cluster + key rotation)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#92400e">Flow:</strong> Data kimia, genomik &amp; clinical trial masuk via App Connect + webMethods → watsonx.data Intelligence auto-catalog &amp; govern massive research datasets (omics, assay results) → Db2 fast vector-search similarity queries tanpa pindahkan data → watsonx.ai Prompt Lab rapid hypothesis testing: generate candidate molecules, predict efficacy &amp; molecular property → Guardium Cryptography Manager proteksi IP-level data selama kolaborasi eksternal (CRO/akademi, post-quantum keys) → IBM Bob generate reproducible ETL &amp; model-training pipeline code (weeks to days) → API Connect expose model API ke tim peneliti &amp; mitra → Verify Governance audit akses data sensitif rekam genomik → Concert compliance &amp; audit pipeline penelitian.
+        </div>
+      </div>
+
+      <!-- 3. AI-enhanced Patient Journey -->
+      <div style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:10px;padding:16px 18px;grid-column:1/-1">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+          <span style="background:#0d9488;color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.5px">63% ADOPTION</span>
+          <div style="font-size:13px;font-weight:700;color:#134e4a">AI-enhanced Patient Journey</div>
+          <span style="background:#ccfbf1;color:#134e4a;font-size:10px;font-weight:700;padding:3px 8px;border-radius:12px">🏥 Siloam + ⚗️ Kimia Farma</span>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#0d9488;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🧠 Data &amp; AI Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">watsonx Assistant for Z (patient chatbot on IBM Z)</span>
+              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">watsonx BI (patient journey NL insights)</span>
+              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">IBM Db2 (visit history, claims, sensor data)</span>
+              <span style="background:#ccfbf1;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">Guardium Data Protection (PHI/HIPAA/GDPR)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#0f766e;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">⚙️ Automation Layer</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#99f6e4;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">webMethods Hybrid Integration (EHR/RIS/pharmacy)</span>
+              <span style="background:#99f6e4;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">App Connect Enterprise (low-code clinical flow)</span>
+              <span style="background:#99f6e4;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">API Connect + webMethods API Mgmt (zero-trust)</span>
+              <span style="background:#99f6e4;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#134e4a">Verify suite (SSO/MFA + Privileged Identity)</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">🔐 Governance &amp; Ops</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Sovereign Core (data sovereignty pasien)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Concert (HIPAA compliance all services)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Instana (API latency &amp; pipeline bottleneck)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Maximo (perangkat medis MRI/sequencer)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Envizi (ESG — jejak energi GPU AI)</span>
+              <span style="background:#fee2e2;border-radius:5px;padding:3px 8px;font-size:11px;font-weight:600;color:#991b1b">Terraform + Vault (staging/production clinical)</span>
+            </div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:6px;padding:8px 10px;font-size:11px;color:#374151;line-height:1.6">
+          <strong style="color:#134e4a">Flow:</strong> Data pasien (appointments, medication adherence, outcomes) → Db2 longitudinal store → webMethods Hybrid Integration connect legacy hospital systems (EHR, RIS, pharmacy, scheduling) ke AI services → App Connect Enterprise orchestrate real-time clinical data flow → watsonx Assistant for Z (on IBM Z hardware) engage pasien via chat/voice: jawab pertanyaan obat, jadwalkan follow-up &amp; triage gejala → watsonx BI surfacing "what-if" analyses untuk klinisi (mis. dampak missed appointments) dalam plain language → API Connect + webMethods zero-trust API untuk downstream clinical apps → Verify suite SSO/MFA untuk dokter, peneliti &amp; pasien + Privileged Identity untuk admin → Sovereign Core data pasien tetap dalam jurisdiksi hukum → Guardium enkripsi &amp; klasifikasi semua PHI (HIPAA/GDPR + AI risk regulations) → Concert audit compliance → Maximo jadwalkan preventive maintenance perangkat medis → Envizi pantau jejak energi GPU AI cluster.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- End-to-end Architecture Summary -->
+    <div style="margin-top:20px;background:#f7f8fa;border:1px solid #e5e7eb;border-radius:10px;padding:16px 18px">
+      <div style="font-size:12px;font-weight:700;color:#1f2328;margin-bottom:10px">🔄 Arsitektur End-to-End Healthcare (dari dokumen referensi)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:4px">1 · DATA INGESTION &amp; GOVERNANCE</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">webMethods Hybrid Integration pull data dari EHR, lab, imaging &amp; research → Db2 + watsonx.data Intelligence; Guardium discovery &amp; encrypt PHI</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#d97706;margin-bottom:4px">2 · MODEL DEVELOPMENT</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx.ai (AutoAI + Prompt Lab) — diagnostic, drug discovery &amp; patient journey prediction; training di secure lake backed by Db2</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#9f1239;margin-bottom:4px">3 · APPLICATION BUILD</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">IBM Bob — accelerate micro-services: radiology-diagnosis API, drug-candidate pipeline, retraining pipelines (45-90% time-saving)</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#0d9488;margin-bottom:4px">4 · API EXPOSURE &amp; SECURITY</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">webMethods API Management + API Connect — zero-trust, rate-limiting &amp; analytics untuk diagnostic inference, drug scoring &amp; patient assistant</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:4px">5 · ORCHESTRATION</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx Orchestrate / Concert — ingest data baru → trigger inference → tulis ke Db2 → notify klinisi atau peneliti via assistant atau BI dashboard</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:4px">6 · ANALYTICS &amp; INSIGHT</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx BI — NL dashboards untuk care-team; watsonx Assistant for Z — conversational experience untuk pasien &amp; staf</div>
+        </div>
+        <div style="background:#fff;border-radius:7px;padding:10px 12px;border:1px solid #e5e7eb">
+          <div style="font-size:10px;font-weight:700;color:#dc2626;margin-bottom:4px">7 · COMPLIANCE &amp; SOVEREIGN</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Sovereign Core (data pasien tetap dalam jurisdiksi) + Concert + Instana (observability &amp; audit) + Verify suite (identity fabric HIPAA)</div>
+        </div>
+        <div style="background:#1a2744;border-radius:7px;padding:10px 12px">
+          <div style="font-size:10px;font-weight:700;color:#60a5fa;margin-bottom:4px">⚡ INFRA &amp; ASSET</div>
+          <div style="font-size:10px;color:#a8b8d8;line-height:1.5">Terraform (GPU cluster IaC) + Vault (secrets) + Maximo (perangkat medis MRI/sequencer) + Envizi (ESG jejak energi AI)</div>
+        </div>
+      </div>
+
+      <!-- Why this stack fits Healthcare -->
+      <div style="margin-top:12px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+        <div style="background:#ecfdf5;border-radius:7px;padding:10px 12px;border:1px solid #a7f3d0">
+          <div style="font-size:10px;font-weight:700;color:#059669;margin-bottom:3px">🛡️ Regulatory-by-Design</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Guardium continuous discovery + watsonx governance memenuhi HIPAA, GDPR &amp; emerging AI-risk regulations</div>
+        </div>
+        <div style="background:#fffbeb;border-radius:7px;padding:10px 12px;border:1px solid #fde68a">
+          <div style="font-size:10px;font-weight:700;color:#d97706;margin-bottom:3px">☁️ Hybrid-Cloud Flexibility</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">Semua komponen on-prem (IBM Z untuk assistant), IBM Cloud, atau multi-cloud — cocok IT landscape rumah sakit yang terfragmentasi</div>
+        </div>
+        <div style="background:#faf5ff;border-radius:7px;padding:10px 12px;border:1px solid #ddd6fe">
+          <div style="font-size:10px;font-weight:700;color:#7c5cd8;margin-bottom:3px">🤖 AI-First + Strong Governance</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">watsonx foundation-model + orchestration + Guardium &amp; data intelligence layer menjaga data trustworthy &amp; auditable</div>
+        </div>
+        <div style="background:#f0fdfa;border-radius:7px;padding:10px 12px;border:1px solid #99f6e4">
+          <div style="font-size:10px;font-weight:700;color:#0d9488;margin-bottom:3px">⚡ Speed to Innovation</div>
+          <div style="font-size:10px;color:#57606a;line-height:1.5">IBM Bob AI-assisted dev + WebMethods low-code integration — new AI-enabled services dari bulan ke hitungan minggu</div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Tab switcher JS -->

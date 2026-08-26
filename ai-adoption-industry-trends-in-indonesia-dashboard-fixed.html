@@ -91,6 +91,57 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 .hidden{display:none!important}
 
 .footer{text-align:center;font-size:11px;color:#9ca3af;border-top:1px solid #e5e7eb;padding:16px 32px;margin-top:8px}
+
+/* ── Interactive enhancements ── */
+
+/* KPI cards hover */
+.kpi-card{transition:transform .18s ease,box-shadow .18s ease;cursor:default}
+.kpi-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.09)}
+
+/* Bubble items hover */
+.bubble-item{transition:transform .18s ease,box-shadow .18s ease,opacity .3s,border-color .3s;cursor:default}
+.bubble-item:not(.dimmed):hover{transform:translateY(-3px) scale(1.03);box-shadow:0 6px 18px rgba(0,0,0,.1);border-color:#3b82d4}
+
+/* Bar row hover */
+.bar-row:not(.dimmed):hover .bar-fill{filter:brightness(1.12)}
+.bar-row:not(.dimmed):hover .bar-label{color:#3b82d4;font-weight:700}
+.bar-row{cursor:default}
+
+/* Heatmap row hover */
+.heatmap-table tbody tr:not(.dimmed):hover td{background:#f7f9ff}
+.heatmap-table tbody tr:not(.dimmed){transition:background .15s}
+
+/* Pill hover */
+.pill{transition:transform .18s ease,box-shadow .18s ease,background .18s ease;cursor:default}
+.pill:hover{transform:translateX(4px);box-shadow:0 3px 10px rgba(0,0,0,.07);background:#fff}
+
+/* Score-dim cards hover */
+.score-dim{transition:transform .18s ease,box-shadow .18s ease;cursor:default}
+.score-dim:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08);border-color:#3b82d4}
+
+/* Section-label hover */
+.section-label{cursor:default}
+
+/* Card generic hover (IBM stack sub-cards) */
+.card{transition:box-shadow .18s ease}
+
+/* Tooltip base */
+.ix-tooltip{position:fixed;background:#1a2744;color:#fff;font-size:11px;font-weight:600;padding:5px 10px;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:9999;white-space:nowrap;box-shadow:0 4px 12px rgba(0,0,0,.25);line-height:1.4}
+.ix-tooltip.visible{opacity:1}
+
+/* Scroll-to-top button */
+#ix-scrolltop{position:fixed;bottom:28px;right:28px;width:40px;height:40px;background:#1a2744;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;z-index:1000;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+#ix-scrolltop.visible{opacity:1;pointer-events:auto}
+#ix-scrolltop:hover{transform:scale(1.1);background:#3b82d4}
+
+/* Legend item hover */
+.legend-item{transition:opacity .18s;cursor:pointer}
+.legend-item:hover{opacity:.7}
+
+/* Header badge pulse removed — keeping subtle */
+.filter-group select:focus{outline:none;border-color:#3b82d4;box-shadow:0 0 0 2px rgba(59,130,212,.2)}
+.btn-reset{transition:background .18s,color .18s,transform .12s}
+.btn-reset:hover{background:#3b82d4;color:#fff;transform:scale(1.04)}
 </style>
 </head>
 <body>
@@ -1639,6 +1690,12 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
   Made with IBM Bob
 </div>
 
+<!-- Scroll-to-top button -->
+<button id="ix-scrolltop" aria-label="Scroll to top">&#8679;</button>
+
+<!-- Tooltip element -->
+<div class="ix-tooltip" id="ix-tooltip"></div>
+
 <style>
 /* Runtime JS injects dimmed class — need transition */
 .bar-row{transition:opacity .3s}
@@ -1884,6 +1941,163 @@ body{font-family:-apple-system,"Segoe UI",system-ui,sans-serif;font-size:14px;li
 
   // ── Init ───────────────────────────────────────────────────────
   applyFilters();
+})();
+</script>
+
+<script>
+/* ── Interactive enhancements script ── */
+(function () {
+  var tooltip = document.getElementById("ix-tooltip");
+
+  /* Generic tooltip show/hide */
+  function showTip(e, text) {
+    tooltip.textContent = text;
+    tooltip.classList.add("visible");
+    moveTip(e);
+  }
+  function moveTip(e) {
+    var x = e.clientX + 14;
+    var y = e.clientY - 32;
+    // keep inside viewport
+    if (x + 200 > window.innerWidth) x = e.clientX - 160;
+    if (y < 8) y = e.clientY + 16;
+    tooltip.style.left = x + "px";
+    tooltip.style.top  = y + "px";
+  }
+  function hideTip() {
+    tooltip.classList.remove("visible");
+  }
+
+  /* ── Bar chart tooltips (industry adoption + use case bars) ── */
+  document.querySelectorAll(".bar-row").forEach(function (row) {
+    var label = (row.querySelector(".bar-label") || {}).textContent || "";
+    var pct   = (row.querySelector(".bar-pct")   || {}).textContent || "";
+    row.addEventListener("mouseenter", function (e) { showTip(e, label + ": " + pct); });
+    row.addEventListener("mousemove",  moveTip);
+    row.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Bubble item tooltips ── */
+  document.querySelectorAll(".bubble-item").forEach(function (b) {
+    var name  = (b.querySelector(".bubble-name") || {}).textContent || "";
+    var score = (b.querySelector(".bubble-score") || {}).textContent || "";
+    var tag   = (b.querySelector(".bubble-tag")  || {}).textContent || "";
+    b.addEventListener("mouseenter", function (e) { showTip(e, name + " · Skor " + score + " · " + tag); });
+    b.addEventListener("mousemove",  moveTip);
+    b.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── KPI cards tooltip ── */
+  document.querySelectorAll(".kpi-card").forEach(function (card) {
+    var label = (card.querySelector(".kpi-label") || {}).textContent || "";
+    var val   = (card.querySelector(".kpi-value") || {}).textContent || "";
+    var sub   = (card.querySelector(".kpi-sub")   || {}).textContent || "";
+    card.addEventListener("mouseenter", function (e) { showTip(e, label + ": " + val + (sub ? " · " + sub : "")); });
+    card.addEventListener("mousemove",  moveTip);
+    card.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Donut segments tooltip ── */
+  var DONUT_LABELS = {
+    financial:     "Financial Services · 43% · ~$903M",
+    telecom:       "Telecommunication · 24% · ~$504M",
+    manufacturing: "Mfg & Energy · 20% · ~$420M",
+    healthcare:    "Healthcare · 13% · ~$273M"
+  };
+  ["financial","telecom","manufacturing","healthcare"].forEach(function (key) {
+    var el = document.getElementById("donut-" + key);
+    if (!el) return;
+    el.addEventListener("mouseenter", function (e) { showTip(e, DONUT_LABELS[key]); });
+    el.addEventListener("mousemove",  moveTip);
+    el.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Heatmap row: highlight on hover & tooltip for Key Initiative ── */
+  document.querySelectorAll("#heatmap-body tr").forEach(function (row) {
+    var tds = row.querySelectorAll("td");
+    var company  = tds[0] ? tds[0].textContent.trim() : "";
+    var industry = tds[1] ? tds[1].textContent.trim() : "";
+    var s2024    = tds[2] ? tds[2].textContent.trim() : "";
+    var s2025    = tds[3] ? tds[3].textContent.trim() : "";
+    var yoy      = tds[4] ? tds[4].textContent.trim() : "";
+    row.addEventListener("mouseenter", function (e) {
+      if (row.classList.contains("dimmed")) return;
+      showTip(e, company + " · " + industry + " · " + s2024 + " → " + s2025 + " (" + yoy + ")");
+    });
+    row.addEventListener("mousemove",  function (e) { if (!row.classList.contains("dimmed")) moveTip(e); });
+    row.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Pill items tooltip ── */
+  document.querySelectorAll(".pill").forEach(function (pill) {
+    var text = (pill.querySelector(".pill-text") || {}).textContent || "";
+    var pct  = (pill.querySelector(".pill-pct")  || {}).textContent || "";
+    pill.addEventListener("mouseenter", function (e) { showTip(e, text + ": " + pct); });
+    pill.addEventListener("mousemove",  moveTip);
+    pill.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Score dim cards tooltip ── */
+  document.querySelectorAll(".score-dim").forEach(function (dim) {
+    var name   = (dim.querySelector(".score-dim-name")   || {}).textContent || "";
+    var weight = (dim.querySelector(".score-dim-weight") || {}).textContent || "";
+    var desc   = (dim.querySelector(".score-dim-desc")   || {}).textContent || "";
+    dim.addEventListener("mouseenter", function (e) { showTip(e, name + " · Bobot " + weight + " — " + desc); });
+    dim.addEventListener("mousemove",  moveTip);
+    dim.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Trend SVG markers tooltip ── */
+  document.querySelectorAll(".trend-marker").forEach(function (marker) {
+    var titleEl = marker.querySelector("title");
+    if (!titleEl) return;
+    var text = titleEl.textContent;
+    marker.addEventListener("mouseenter", function (e) { showTip(e, text); });
+    marker.addEventListener("mousemove",  moveTip);
+    marker.addEventListener("mouseleave", hideTip);
+  });
+
+  /* ── Scroll-to-top button ── */
+  var scrollBtn = document.getElementById("ix-scrolltop");
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 300) {
+      scrollBtn.classList.add("visible");
+    } else {
+      scrollBtn.classList.remove("visible");
+    }
+  }, { passive: true });
+  scrollBtn.addEventListener("click", function () {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* ── IBM Stack sub-cards hover tooltip ── */
+  document.querySelectorAll("[id^='stack-'] .card, [id^='stack-'] [style*='border-radius:10px']").forEach(function (card) {
+    var titleEl = card.querySelector("[style*='font-weight:700']");
+    if (!titleEl) return;
+    var label = titleEl.textContent.trim();
+    if (label.length < 4 || label.length > 80) return;
+    card.style.transition = "transform .18s ease, box-shadow .18s ease";
+    card.addEventListener("mouseenter", function () {
+      card.style.transform  = "translateY(-2px)";
+      card.style.boxShadow  = "0 6px 18px rgba(0,0,0,.08)";
+    });
+    card.addEventListener("mouseleave", function () {
+      card.style.transform  = "";
+      card.style.boxShadow  = "";
+    });
+  });
+
+  /* ── Tab buttons subtle hover ── */
+  document.querySelectorAll("#ibm-stack-tabs button").forEach(function (btn) {
+    btn.addEventListener("mouseenter", function () {
+      if (btn.style.opacity === "0.3") return;
+      btn.style.transform = "scale(1.04)";
+    });
+    btn.addEventListener("mouseleave", function () {
+      btn.style.transform = "";
+    });
+  });
+
 })();
 </script>
 
